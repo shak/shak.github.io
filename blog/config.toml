@@ -1,3 +1,30 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseurl = "https://shak.github.io"
+languageCode = "en-gb"
+Title = "Shahrukh Omar"
+copyright = "&copy; Shahrukh Omar"
+theme = "hugo_theme_pickles"
+publishDir = "../"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+[params]
+  paginate = 10
+  # Social accounts. Link to these accounts are displayed in the header and footer
+  twitter = "shahrukhomar"
+  github = "shak"
+  npm = "shahrukhomar"
+  # Google Analytics API key.
+  # ga_api_key = "Your Google Analytics tracking id"
+  # author = "Shahrukh Omar"
+  # authorwebsite = "shahrukhomar.com"
+  # avatar = "/path/to/avatar"
+  # contact = "Your contact link (ex. mailto:foo@example.com)"
+  # bio = "Your short bio"
+  # Short subtitle/tagline. This is displayed in the header.
+  # subtitle = "Short subtitle"
+  # Logo image. This is displayed ogp image.
+  #logo = "/path/to/logo"
+  # favicon = "/path/to/favicon"
