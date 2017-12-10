@@ -5,6 +5,10 @@ copyright = "&copy; Shahrukh Omar"
 theme = "hugo_theme_pickles"
 publishDir = "../"
 
+# syntax highlight
+pygmentsStyle = "tango"
+pygmentsCodeFences = true
+
 [taxonomies]
   tag = "tags"
   category = "categories"
@@ -20,11 +24,11 @@ publishDir = "../"
   # ga_api_key = "Your Google Analytics tracking id"
   # author = "Shahrukh Omar"
   # authorwebsite = "shahrukhomar.com"
-  # avatar = "/path/to/avatar"
+  # avatar = "img/logo.png"
   # contact = "Your contact link (ex. mailto:foo@example.com)"
   # bio = "Your short bio"
   # Short subtitle/tagline. This is displayed in the header.
-  # subtitle = "Short subtitle"
+  # subtitle = "Blog"
   # Logo image. This is displayed ogp image.
-  #logo = "/path/to/logo"
-  # favicon = "/path/to/favicon"
+  # logo = "/img/logo.png"
+  favicon = "/img/favicon.ico"
