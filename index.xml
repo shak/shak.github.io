@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shahrukh Omar</title>
-    <link>https://shak.github.io/</link>
+    <link>http://www.shahrukhomar.com/</link>
     <description>Recent content on Shahrukh Omar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
     <lastBuildDate>Sun, 10 Dec 2017 19:31:57 +0000</lastBuildDate>
     
-	<atom:link href="https://shak.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.shahrukhomar.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Github Worktrees</title>
-      <link>https://shak.github.io/posts/github-worktrees/</link>
+      <link>http://www.shahrukhomar.com/posts/github-worktrees/</link>
       <pubDate>Sun, 10 Dec 2017 19:31:57 +0000</pubDate>
       
-      <guid>https://shak.github.io/posts/github-worktrees/</guid>
+      <guid>http://www.shahrukhomar.com/posts/github-worktrees/</guid>
       <description>&lt;p&gt;Recently I needed another copy of the git repository I was working on but it seemed like an awful lot of work cloning it another folder and then switching back and forth and fetching/pushing to keep it all up-to-date.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
