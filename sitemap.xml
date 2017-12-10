@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://shak.github.io/posts/github-worktrees/</loc>
+    <lastmod>2017-12-10T19:31:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://shak.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shak.github.io/tags/development/</loc>
+    <lastmod>2017-12-10T19:31:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shak.github.io/categories/development/</loc>
+    <lastmod>2017-12-10T19:31:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shak.github.io/tags/github/</loc>
+    <lastmod>2017-12-10T19:31:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shak.github.io/posts/</loc>
+    <lastmod>2017-12-10T19:31:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shak.github.io/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shak.github.io/</loc>
+    <lastmod>2017-12-10T19:31:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shak.github.io/tags/</loc>
+    <lastmod>2017-12-10T19:31:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shak.github.io/tags/tools/</loc>
+    <lastmod>2017-12-10T19:31:57+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
