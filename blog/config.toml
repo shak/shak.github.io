@@ -24,7 +24,7 @@ pygmentsCodeFences = true
   # Google Analytics API key.
   # ga_api_key = "Your Google Analytics tracking id"
   author = "Shahrukh Omar"
-  authorwebsite = "https://www.shahrukhomar.com"
+  authorwebsite = "/www.shahrukhomar.com"
   # avatar = "img/logo.png"
   # contact = "Your contact link (ex. mailto:foo@example.com)"
   # bio = "Your short bio"

@@ -28,7 +28,7 @@ To create a "worktree" simply run:
 # git worktree add -b <new-branch> <directory> <upstream>/<branch>
 ```
 
-[Documentation on git branch can be found here](https://git-scm.com/docs/git-worktree)
+[Documentation on git branch can be found here](https://git-scm.com/docs/git-worktree).
 
 ### Use Cases
 
