@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tools on Shahrukh Omar</title>
-    <link>http://www.shahrukhomar.com/tags/tools/</link>
-    <description>Recent content in Tools on Shahrukh Omar</description>
+    <title>Tools on Shahrukh Omar Blog</title>
+    <link>https://www.shahrukhomar.com/tags/tools/</link>
+    <description>Recent content in Tools on Shahrukh Omar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
     <lastBuildDate>Sun, 10 Dec 2017 19:31:57 +0000</lastBuildDate>
     
-	<atom:link href="http://www.shahrukhomar.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.shahrukhomar.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Github Worktrees</title>
-      <link>http://www.shahrukhomar.com/posts/github-worktrees/</link>
+      <link>https://www.shahrukhomar.com/posts/github-worktrees/</link>
       <pubDate>Sun, 10 Dec 2017 19:31:57 +0000</pubDate>
       
-      <guid>http://www.shahrukhomar.com/posts/github-worktrees/</guid>
+      <guid>https://www.shahrukhomar.com/posts/github-worktrees/</guid>
       <description>&lt;p&gt;Recently I needed another copy of the git repository I was working on but it seemed like an awful lot of work cloning it another folder and then switching back and forth and fetching/pushing to keep it all up-to-date.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>

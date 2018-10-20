@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Shahrukh Omar</title>
-    <link>http://www.shahrukhomar.com/tags/</link>
-    <description>Recent content in Tags on Shahrukh Omar</description>
+    <title>Tags on Shahrukh Omar Blog</title>
+    <link>https://www.shahrukhomar.com/tags/</link>
+    <description>Recent content in Tags on Shahrukh Omar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
     <lastBuildDate>Sun, 10 Dec 2017 19:31:57 +0000</lastBuildDate>
     
-	<atom:link href="http://www.shahrukhomar.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.shahrukhomar.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Development</title>
-      <link>http://www.shahrukhomar.com/tags/development/</link>
+      <link>https://www.shahrukhomar.com/tags/development/</link>
       <pubDate>Sun, 10 Dec 2017 19:31:57 +0000</pubDate>
       
-      <guid>http://www.shahrukhomar.com/tags/development/</guid>
+      <guid>https://www.shahrukhomar.com/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Github</title>
-      <link>http://www.shahrukhomar.com/tags/github/</link>
+      <link>https://www.shahrukhomar.com/tags/github/</link>
       <pubDate>Sun, 10 Dec 2017 19:31:57 +0000</pubDate>
       
-      <guid>http://www.shahrukhomar.com/tags/github/</guid>
+      <guid>https://www.shahrukhomar.com/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tools</title>
-      <link>http://www.shahrukhomar.com/tags/tools/</link>
+      <link>https://www.shahrukhomar.com/tags/tools/</link>
       <pubDate>Sun, 10 Dec 2017 19:31:57 +0000</pubDate>
       
-      <guid>http://www.shahrukhomar.com/tags/tools/</guid>
+      <guid>https://www.shahrukhomar.com/tags/tools/</guid>
       <description></description>
     </item>
     

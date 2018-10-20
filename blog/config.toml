@@ -1,6 +1,6 @@
-baseurl = "http://www.shahrukhomar.com/"
+baseurl = "https://www.shahrukhomar.com/"
 languageCode = "en-gb"
-Title = "Shahrukh Omar"
+Title = "Shahrukh Omar Blog"
 copyright = "&copy; Shahrukh Omar"
 theme = "hugo_theme_pickles"
 publishDir = "../"
@@ -23,13 +23,13 @@ pygmentsCodeFences = true
   rss = "/index.xml"
   # Google Analytics API key.
   # ga_api_key = "Your Google Analytics tracking id"
-  # author = "Shahrukh Omar"
-  # authorwebsite = "shahrukhomar.com"
+  author = "Shahrukh Omar"
+  authorwebsite = "https://www.shahrukhomar.com"
   # avatar = "img/logo.png"
   # contact = "Your contact link (ex. mailto:foo@example.com)"
   # bio = "Your short bio"
   # Short subtitle/tagline. This is displayed in the header.
-  # subtitle = "Blog"
+  subtitle = "Blog"
   # Logo image. This is displayed ogp image.
   # logo = "/img/logo.png"
   favicon = "/img/favicon.ico"
