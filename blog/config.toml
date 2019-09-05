@@ -4,6 +4,7 @@ Title = "Shahrukh Omar"
 copyright = "&copy; Shahrukh Omar"
 theme = "hugo_theme_pickles"
 publishDir = "../"
+enableEmoji = true
 
 # syntax highlight
 pygmentsStyle = "tango"
