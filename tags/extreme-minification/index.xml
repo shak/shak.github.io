@@ -18,18 +18,18 @@
       <pubDate>Thu, 05 Sep 2019 22:13:30 +0100</pubDate>
       
       <guid>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part1/</guid>
-      <description>&lt;p&gt;In this part 2 of the &amp;ldquo;Extreme Minification&amp;rdquo; series I discuss in detail how I implemented the binary char encoding in JS and what were the main problems that needed to be solved.&lt;/p&gt;
+      <description>&lt;p&gt;In this post I discuss in detail how I implemented the binary char encoding in JS and the various optimisation steps I took to minimise the final encoding map.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>JS Extreme Minification: Encoding Shapes - Part 1</title>
+      <title>JS Extreme Minification: Encoding Shapes</title>
       <link>https://www.shahrukhomar.com/posts/em-encoding-shapes/</link>
       <pubDate>Thu, 05 Sep 2019 20:53:45 +0100</pubDate>
       
       <guid>https://www.shahrukhomar.com/posts/em-encoding-shapes/</guid>
-      <description>&lt;p&gt;One of the biggest challenges while doing my js1k challenge was rendering shapes. In part 1 of this series of posts I will discuss in detail the various possibilities and why I chose to go with binary char encoding.&lt;/p&gt;
+      <description>&lt;p&gt;One of the biggest challenges while doing my js1k challenge was rendering shapes. In this part of the series I will discuss in detail the various possibilities of drawing shapes and why I chose to go with binary char encoding.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
