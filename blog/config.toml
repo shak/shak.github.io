@@ -34,3 +34,4 @@ pygmentsCodeFences = true
   # Logo image. This is displayed ogp image.
   # logo = "/img/logo.png"
   favicon = "/img/favicon.ico"
+  custom_css = ["css/custom.css"]

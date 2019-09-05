@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Github Worktrees</title>
-  <meta property="og:title" content="Github Worktrees" />
-  <meta name="twitter:title" content="Github Worktrees" />
+  <title>JS Extreme Minification: Binary Char Encoding - Part 1</title>
+  <meta property="og:title" content="JS Extreme Minification: Binary Char Encoding - Part 1" />
+  <meta name="twitter:title" content="JS Extreme Minification: Binary Char Encoding - Part 1" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="Shahrukh Omar" />
-  <meta property="og:url" content="https://www.shahrukhomar.com/posts/github-worktrees/" />
+  <meta property="og:url" content="https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part1/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -60,64 +60,143 @@
 
 <article class="p-article">
   <header>
-    <h1>Github Worktrees</h1>
+    <h1>JS Extreme Minification: Binary Char Encoding - Part 1</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2017-12-10T19:31:57Z">
-          Dec 10, 2017
+        <time datetime="2019-09-05T22:13:30&#43;01:00">
+          Sep 5, 2019
         </time>
       </div>
       
-      <a href="https://www.shahrukhomar.com/tags/github" class="c-tag">Github</a>
+      <a href="https://www.shahrukhomar.com/tags/extreme-minification" class="c-tag">Extreme Minification</a>
       
       <a href="https://www.shahrukhomar.com/tags/development" class="c-tag">Development</a>
       
-      <a href="https://www.shahrukhomar.com/tags/tools" class="c-tag">Tools</a>
+      <a href="https://www.shahrukhomar.com/tags/code-calisthenics" class="c-tag">Code Calisthenics</a>
       
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>Recently I needed another copy of the git repository I was working on but it seemed like an awful lot of work cloning it another folder and then switching back and forth and fetching/pushing to keep it all up-to-date.</p>
+    <p>In this part 2 of the &ldquo;Extreme Minification&rdquo; series I discuss in detail how I implemented the binary char encoding in JS and what were the main problems that needed to be solved.</p>
 
 <p></p>
 
-<p>This is where <code>git worktree</code> can be a very useful feature.</p>
+<p>In my <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">previous post</a> I discussed how I decided to implement a binary char map to encode the game character shapes to be drawn later using <code>canvas.fillRect</code>.</p>
 
-<p>Git &ldquo;worktrees&rdquo; gives you a full working copy of your repository that you can treat like any other clone? So why are &ldquo;worktrees&rdquo; better than simply cloning repositories?</p>
+<p>Taking <code>space invaders</code> alien as an example, it is hopefully quite straightforward to see that it lends itself quite nicely to be drawn as a series of black and white squares arranged in a grid pattern.</p>
 
-<p>A few reasons:</p>
 
-<ul>
-<li>&ldquo;worktrees&rdquo; are hard linked, so they are really light-weight and unlike clones they don&rsquo;t pull the entire repository locally.</li>
-<li>You can access locally committed changes across different &ldquo;worktrees&rdquo;. With cloned repositories you&rsquo;d need to push the changes upstream and then fetch in a different clone where those changes are required.</li>
-<li>You can switch between &ldquo;worktrees&rdquo; without affecting changes in your current repo. So all the goodness of clones but without the additional overhead.</li>
-</ul>
+<figure>
+    
+        <img src="/img/alien_flat.png#center" width="50%" />
+    
+    
+</figure>
 
-<h4 id="how-to">How to</h4>
 
-<p>To create a &ldquo;worktree&rdquo; simply run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"># git worktree add -b &lt;new-branch&gt; &lt;directory&gt; &lt;upstream&gt;/&lt;branch&gt;</code></pre></div>
-<p><a href="https://git-scm.com/docs/git-worktree">Documentation on git branch can be found here</a>.</p>
+<p>Using monochrome colour pallete, the grid can be then represented using a series of 1&rsquo;s and 0&rsquo;s. 1 being black square and 0 being a white. Using this algorithm, we end up with something like:</p>
 
-<h3 id="use-cases">Use Cases</h3>
+<pre><code>00100000100 // pink
+00010001000 // blue
+00111111100 // green
+01101110110 // etc.
+11111111111
+10100000101
+00011011000
+</code></pre>
 
-<p>Following are some use-cases from my personal experiences to give you an idea when and how can &ldquo;worktrees&rdquo; be useful.</p>
+<p>which can then be put into a long string and encoded within the JS file.</p>
 
-<h4 id="running-tests">Running tests</h4>
+<pre><code>00100000100000100010000011111110001101110110111111111111010000010100011011000
+</code></pre>
 
-<p>Before I had access to CI testing services on my testable repositories, I would create a &ldquo;worktree&rdquo; for branch that was ready to be merged, <code>cd</code> into the worktree directory and run the tests. In the meantime I would <code>cd</code> back to my working directory and carry on working while the tests ran in the background.</p>
+<p>To decode and draw the shape, we will simply need to run a nested loop. The outer loop will draw rows while the inner loop will draw the columns.</p>
 
-<p>Once tests finished and I was happy with the outcome, I would merge the branch and simply delete the worktree directory. This is especially useful if you are low on <code>inodes</code> or <code>storage</code> or if that is a concern (as it was in my case).</p>
+<p>In pseudo code the algorithm to draw the shape would be:</p>
 
-<p>I still sometimes do that when I want to run the tests in the background so I can continue working on code.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">characterAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#0000cf;font-weight:bold">1</span>
+      <span style="color:#000">drawBlackSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">else</span>
+      <span style="color:#000">drawWhiteSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+</code></pre></div>
 
-<h4 id="building-github-pages">Building &ldquo;Github Pages&rdquo;</h4>
+<p>It can be seen above that the alien encoded in binary chars is about <strong>77 bytes</strong>. We need 2 different alien shapes so that&rsquo;s about <strong>~150 bytes</strong> plus maybe another <strong>50 bytes</strong> for the ship and about <strong>10 bytes</strong> for the ship and the starts. So we are looking at <strong>~220 bytes</strong> in total.</p>
 
-<p>Those who use Github Pages would know that it is possible to publish your site from the <code>gh-pages</code> branches. Normally, to deploy changes to your Github Pages you would switch the <code>gh-pages</code> branch, build the site and then push up.</p>
+<p>This is already better than the solutions discussed in the <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">previous post</a> so we are definitely on the right track here.</p>
 
-<p>With worktrees, I create a &ldquo;worktree&rdquo; for the <code>gh-pages</code> branch in the <code>dist</code> folder. Then I can compile/build my site directly into the <code>dist</code> folder, <code>cd</code> into it and then push it up which will always update the <code>gh-pages</code>.</p>
+<p>However, we must optimise it still to achieve the 1,024 byte goal.</p>
+
+<h3 id="optimisation-1-mirroring">Optimisation 1: Mirroring</h3>
+
+<p>One benefit of the <code>space invader</code> esque alien shapes is that they are symmetrical along the y-axis. I assume the devs back in the day had similar challenges when it came to storage space and available memory as my js1k project does so they intentionally chose shapes that could be mirrored.</p>
+
+<p>That&rsquo;s primarily because such shapes can be defined using only half the information and then mirrored about an axis to draw the other half.</p>
+
+
+<figure>
+    
+        <img src="/img/alien_half.png#center" width="50%" />
+    
+    
+</figure>
+
+
+<p>But this approach will not work with how we are parsing and rendering our bitmap using the algorithm above. Because the algorithm renders row by row starting from the top whereas our shape is mirrored across the y-axis.</p>
+
+<p>So we will need to encode and render columnwise.</p>
+
+<h3 id="optimisation-2-going-sideways">Optimisation 2: Going Sideways</h3>
+
+<p>instead of encoding row by row, this step requires us to encode column by column. So:</p>
+
+
+<figure>
+    
+        <img src="/img/alien_sideways.png#center" width="50%" />
+    
+    
+</figure>
+
+
+<pre><code>01110000 // pink
+00011000 // blue
+01111101 // green
+10110110 // etc.
+10111100
+00111100
+</code></pre>
+
+<p>This can be represented as binary char string:</p>
+
+<pre><code>011100000001100001111101101101101011110000111100
+</code></pre>
+
+<p>The sequence is now <strong>48 bytes</strong> down from <strong>77 bytes</strong> that is a reduction of about <strong>37%</strong> so we should expect all shapes to take about <strong>~139 bytes</strong> altogether. 👍</p>
+
+<p>Now when we parse and draw, we can mirror the shape after column 5.</p>
+
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">characterAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#0000cf;font-weight:bold">1</span>
+      <span style="color:#000">drawBlackSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">else</span>
+      <span style="color:#000">drawWhiteSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#8f5902;font-style:italic">// keeping x and y form previous step, run in reverse to mirror
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">--</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">characterAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#0000cf;font-weight:bold">1</span>
+      <span style="color:#000">drawBlackSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">else</span>
+      <span style="color:#000">drawWhiteSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+</code></pre></div>
+
+<p>The algorithm to parse and render does become a bit more complex but we will tackle it a bit later.</p>
   </section>
   <footer>
     
@@ -125,16 +204,37 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
+          <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">Older</a>
           
         </div>
       </div>
     </nav>
     
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/em-encoding-shapes/"
+        >
+        <span>JS Extreme Minification: Encoding Shapes - Part 1</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/github-worktrees/"
+        >
+        <span>Github Worktrees</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
 
 
     

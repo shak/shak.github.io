@@ -1,0 +1,10 @@
+img[src$='#center'] {
+    display: block;
+    margin: 0.7rem auto;
+}
+
+figcaption p {
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+}

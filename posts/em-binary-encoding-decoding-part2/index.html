@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Github Worktrees</title>
-  <meta property="og:title" content="Github Worktrees" />
-  <meta name="twitter:title" content="Github Worktrees" />
+  <title>JS Extreme Minification: Binary Encoding Decoding - Part 2</title>
+  <meta property="og:title" content="JS Extreme Minification: Binary Encoding Decoding - Part 2" />
+  <meta name="twitter:title" content="JS Extreme Minification: Binary Encoding Decoding - Part 2" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="Shahrukh Omar" />
-  <meta property="og:url" content="https://www.shahrukhomar.com/posts/github-worktrees/" />
+  <meta property="og:url" content="https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part2/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -34,7 +34,7 @@
   
   <meta name="generator" content="Hugo 0.49.2" /><link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
   
-  <link rel="stylesheet" href="https://www.shahrukhomar.com/css/custom.css">
+  
   <link rel='icon' type='image/x-icon' href="https://www.shahrukhomar.com/img/favicon.ico" />
   <script type="text/javascript" src="https://www.shahrukhomar.com/js/bundle.js"></script>
   
@@ -60,64 +60,26 @@
 
 <article class="p-article">
   <header>
-    <h1>Github Worktrees</h1>
+    <h1>JS Extreme Minification: Binary Encoding Decoding - Part 2</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2017-12-10T19:31:57Z">
-          Dec 10, 2017
+        <time datetime="2019-09-05T22:13:30&#43;01:00">
+          Sep 5, 2019
         </time>
       </div>
       
-      <a href="https://www.shahrukhomar.com/tags/github" class="c-tag">Github</a>
+      <a href="https://www.shahrukhomar.com/tags/extreme-minification" class="c-tag">Extreme Minification</a>
       
       <a href="https://www.shahrukhomar.com/tags/development" class="c-tag">Development</a>
       
-      <a href="https://www.shahrukhomar.com/tags/tools" class="c-tag">Tools</a>
+      <a href="https://www.shahrukhomar.com/tags/code-calisthenics" class="c-tag">Code Calisthenics</a>
       
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>Recently I needed another copy of the git repository I was working on but it seemed like an awful lot of work cloning it another folder and then switching back and forth and fetching/pushing to keep it all up-to-date.</p>
-
-<p></p>
-
-<p>This is where <code>git worktree</code> can be a very useful feature.</p>
-
-<p>Git &ldquo;worktrees&rdquo; gives you a full working copy of your repository that you can treat like any other clone? So why are &ldquo;worktrees&rdquo; better than simply cloning repositories?</p>
-
-<p>A few reasons:</p>
-
-<ul>
-<li>&ldquo;worktrees&rdquo; are hard linked, so they are really light-weight and unlike clones they don&rsquo;t pull the entire repository locally.</li>
-<li>You can access locally committed changes across different &ldquo;worktrees&rdquo;. With cloned repositories you&rsquo;d need to push the changes upstream and then fetch in a different clone where those changes are required.</li>
-<li>You can switch between &ldquo;worktrees&rdquo; without affecting changes in your current repo. So all the goodness of clones but without the additional overhead.</li>
-</ul>
-
-<h4 id="how-to">How to</h4>
-
-<p>To create a &ldquo;worktree&rdquo; simply run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"># git worktree add -b &lt;new-branch&gt; &lt;directory&gt; &lt;upstream&gt;/&lt;branch&gt;</code></pre></div>
-<p><a href="https://git-scm.com/docs/git-worktree">Documentation on git branch can be found here</a>.</p>
-
-<h3 id="use-cases">Use Cases</h3>
-
-<p>Following are some use-cases from my personal experiences to give you an idea when and how can &ldquo;worktrees&rdquo; be useful.</p>
-
-<h4 id="running-tests">Running tests</h4>
-
-<p>Before I had access to CI testing services on my testable repositories, I would create a &ldquo;worktree&rdquo; for branch that was ready to be merged, <code>cd</code> into the worktree directory and run the tests. In the meantime I would <code>cd</code> back to my working directory and carry on working while the tests ran in the background.</p>
-
-<p>Once tests finished and I was happy with the outcome, I would merge the branch and simply delete the worktree directory. This is especially useful if you are low on <code>inodes</code> or <code>storage</code> or if that is a concern (as it was in my case).</p>
-
-<p>I still sometimes do that when I want to run the tests in the background so I can continue working on code.</p>
-
-<h4 id="building-github-pages">Building &ldquo;Github Pages&rdquo;</h4>
-
-<p>Those who use Github Pages would know that it is possible to publish your site from the <code>gh-pages</code> branches. Normally, to deploy changes to your Github Pages you would switch the <code>gh-pages</code> branch, build the site and then push up.</p>
-
-<p>With worktrees, I create a &ldquo;worktree&rdquo; for the <code>gh-pages</code> branch in the <code>dist</code> folder. Then I can compile/build my site directly into the <code>dist</code> folder, <code>cd</code> into it and then push it up which will always update the <code>gh-pages</code>.</p>
+    
   </section>
   <footer>
     
@@ -125,16 +87,37 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
+          <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes-part1/">Older</a>
           
         </div>
       </div>
     </nav>
     
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/em-encoding-shapes-part1/"
+        >
+        <span>JS Extreme Minification: Encoding Shapes - Part 1</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/github-worktrees/"
+        >
+        <span>Github Worktrees</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
 
 
     

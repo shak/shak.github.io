@@ -1,12 +1,12 @@
 ---
-title: "JS Extreme Minification: Encoding Shapes - Part 1"
+title: "JS Extreme Minification: Encoding Shapes"
 date: 2019-09-05T20:53:45+01:00
 draft: false
 tags: ["Extreme Minification", "Development", "Code Calisthenics"]
 categories: ["Development"]
 ---
 
-One of the biggest challenges while doing my js1k challenge was rendering shapes. In part 1 of this series of posts I will discuss in detail the various possibilities and why I chose to go with binary char encoding.
+One of the biggest challenges while doing my js1k challenge was rendering shapes. In this part of the series I will discuss in detail the various possibilities of drawing shapes and why I chose to go with binary char encoding.
 
 <!--more-->
 

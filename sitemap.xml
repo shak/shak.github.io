@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.shahrukhomar.com/posts/em-encoding-shapes-part1/</loc>
+    <loc>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part1/</loc>
+    <lastmod>2019-09-05T22:13:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.shahrukhomar.com/posts/em-encoding-shapes/</loc>
     <lastmod>2019-09-05T20:53:45+01:00</lastmod>
   </url>
   
@@ -19,25 +24,25 @@
   
   <url>
     <loc>https://www.shahrukhomar.com/tags/code-calisthenics/</loc>
-    <lastmod>2019-09-05T20:53:45+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.shahrukhomar.com/categories/development/</loc>
-    <lastmod>2019-09-05T20:53:45+01:00</lastmod>
+    <lastmod>2019-09-05T22:13:30+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.shahrukhomar.com/tags/development/</loc>
-    <lastmod>2019-09-05T20:53:45+01:00</lastmod>
+    <lastmod>2019-09-05T22:13:30+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shahrukhomar.com/categories/development/</loc>
+    <lastmod>2019-09-05T22:13:30+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.shahrukhomar.com/tags/extreme-minification/</loc>
-    <lastmod>2019-09-05T20:53:45+01:00</lastmod>
+    <lastmod>2019-09-05T22:13:30+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -49,7 +54,7 @@
   
   <url>
     <loc>https://www.shahrukhomar.com/posts/</loc>
-    <lastmod>2019-09-05T20:53:45+01:00</lastmod>
+    <lastmod>2019-09-05T22:13:30+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -60,13 +65,13 @@
   
   <url>
     <loc>https://www.shahrukhomar.com/</loc>
-    <lastmod>2019-09-05T20:53:45+01:00</lastmod>
+    <lastmod>2019-09-05T22:13:30+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.shahrukhomar.com/tags/</loc>
-    <lastmod>2019-09-05T20:53:45+01:00</lastmod>
+    <lastmod>2019-09-05T22:13:30+01:00</lastmod>
     <priority>0</priority>
   </url>
   
