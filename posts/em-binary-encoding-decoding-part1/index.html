@@ -79,13 +79,13 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>In this post I discuss in detail how I implemented the binary char encoding in JS and the various optimisation steps I took to minimise the final encoding map.</p>
+    <p>This post documents the process of binary char encoding that was used for the js1k space invaders project.</p>
 
 <p></p>
 
-<p>In my <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">previous post</a> I discussed how I decided to implement a binary char map to encode the game character shapes to be drawn later using <code>canvas.fillRect</code>.</p>
+<p>In my <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">previous post</a> I discussed why binary char encoding was chosen to draw character shapes in the game and how it benefits from <code>canvas.fillRect</code> which we already have available to us in the <code>js1k</code> shim.</p>
 
-<p>Taking <code>space invaders</code> alien as an example, it is hopefully quite straightforward to see that it lends itself quite nicely to be drawn as a series of black and white squares arranged in a grid pattern.</p>
+<p>Using <code>space invaders</code> alien as an example for this post, it can be seen that the alien shape can be drawn as a series of black and white sqaures in a 11x8 grid.</p>
 
 
 <figure>
@@ -96,7 +96,7 @@
 </figure>
 
 
-<p>Using monochrome colour pallete, the grid can be then represented using a series of 1&rsquo;s and 0&rsquo;s. 1 being black square and 0 being a white. Using this algorithm, we end up with something like:</p>
+<p>When using a monochrome colour pallete, the grid can be then represented using a series of 1&rsquo;s and 0&rsquo;s. 1 being black square and 0 being a white.</p>
 
 <pre><code>00100000100 // pink
 00010001000 // blue
@@ -107,34 +107,38 @@
 00011011000
 </code></pre>
 
-<p>which can then be put into a long string and encoded within the JS file.</p>
+<p>Information from the grid can be serialised into a single binary char string that contains the information about colour and position for each pixel in the character shape.</p>
 
 <pre><code>00100000100000100010000011111110001101110110111111111111010000010100011011000
 </code></pre>
 
-<p>To decode and draw the shape, we will simply need to run a nested loop. The outer loop will draw rows while the inner loop will draw the columns.</p>
+<p>To decode and draw the shape, we will simply need to run a nested loop. The outer loop will draw rows while the inner loop will draw the columns while the value of each char in the binary string will either paint a black square or a white square.</p>
 
-<p>In pseudo code the algorithm to draw the shape would be:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bitChars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;00100000100000100010000011111110001101110110111111111111010000010100011011000&#39;</span><span style="color:#000;font-weight:bold">;</span>
+  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">sf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//scaling factor;
+</span><span style="color:#8f5902;font-style:italic"></span>
+  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bit</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">bitChars</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">charAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">11</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">);</span>
 
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">characterAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#0000cf;font-weight:bold">1</span>
-      <span style="color:#000">drawBlackSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">else</span>
-      <span style="color:#000">drawWhiteSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+      <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">bit</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#4e9a06">&#39;1&#39;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#000">context</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fillRect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">);</span>
+      <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#000;font-weight:bold">}</span>
 </code></pre></div>
 
-<p>It can be seen above that the alien encoded in binary chars is about <strong>77 bytes</strong>. We need 2 different alien shapes so that&rsquo;s about <strong>~150 bytes</strong> plus maybe another <strong>50 bytes</strong> for the ship and about <strong>10 bytes</strong> for the ship and the starts. So we are looking at <strong>~220 bytes</strong> in total.</p>
+<p>In the example above, the alien encoded in binary chars is about <strong>77 bytes</strong>. We need 2 different alien shapes for the game so that&rsquo;s about <strong>~150 bytes</strong> plus maybe another <strong>60 bytes</strong> for the ship and add about another <strong>10 bytes</strong> for the bullet and the starts. So we are looking at <strong>~220 bytes</strong> in total.</p>
 
-<p>This is already better than the solutions discussed in the <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">previous post</a> so we are definitely on the right track here.</p>
+<p>This is already looking better than the solutions discussed in the <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">previous post</a> so we are probably on the right track here.</p>
 
-<p>However, we must optimise it still to achieve the 1,024 byte goal.</p>
+<p>However, we must optimise it still to achieve the <strong>1,024 byte</strong> goal.</p>
 
 <h3 id="optimisation-1-mirroring">Optimisation 1: Mirroring</h3>
 
-<p>One benefit of the <code>space invader</code> esque alien shapes is that they are symmetrical along the y-axis. I assume the devs back in the day had similar challenges when it came to storage space and available memory as my js1k project does so they intentionally chose shapes that could be mirrored.</p>
+<p>One benefit of the <code>space invader</code> esque alien shapes is that they are symmetrical along the y-axis. I assume the space invader devs back in the day had similar challenges to my js1k project where they were constained by available memory, processing power and storage space.</p>
 
-<p>That&rsquo;s primarily because such shapes can be defined using only half the information and then mirrored about an axis to draw the other half.</p>
+<p>Mirroring would allow us to define only half the shape of the alien in the binary char string and we can draw the other half using the same information but in reverse.</p>
 
 
 <figure>
@@ -145,13 +149,13 @@
 </figure>
 
 
-<p>But this approach will not work with how we are parsing and rendering our bitmap using the algorithm above. Because the algorithm renders row by row starting from the top whereas our shape is mirrored across the y-axis.</p>
+<p>However this approach will not work with how we are parsing and rendering our binary char map because the algorithm above renders row by row starting from the top whereas our shape is mirrored about the y-axis.</p>
 
-<p>So we will need to encode and render columnwise.</p>
+<p>To make this work, we will need to encode and parse the shape column wise.</p>
 
 <h3 id="optimisation-2-going-sideways">Optimisation 2: Going Sideways</h3>
 
-<p>instead of encoding row by row, this step requires us to encode column by column. So:</p>
+<p>To help keep the algorithm simple and easy to understand, I have rotated the shape counter-clockwise for this step but essentially it is the same shape.</p>
 
 
 <figure>
@@ -162,41 +166,42 @@
 </figure>
 
 
-<pre><code>01110000 // pink
+<pre><code>00111100
+00111101
+01101101 // etc.
+10111110 // green
 00011000 // blue
-01111101 // green
-10110110 // etc.
-10111100
-00111100
+00001110 // pink
 </code></pre>
 
-<p>This can be represented as binary char string:</p>
+<p>The binary char map above serialises to binary char string as follows:</p>
 
-<pre><code>011100000001100001111101101101101011110000111100
+<pre><code>001111000011110101101101101111100001100000001110
 </code></pre>
 
-<p>The sequence is now <strong>48 bytes</strong> down from <strong>77 bytes</strong> that is a reduction of about <strong>37%</strong> so we should expect all shapes to take about <strong>~139 bytes</strong> altogether. 👍</p>
+<p>Minor changes have been made to parse and render the map to make it read and render column first.</p>
 
-<p>Now when we parse and draw, we can mirror the shape after column 5.</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">characterAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#0000cf;font-weight:bold">1</span>
-      <span style="color:#000">drawBlackSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">else</span>
-      <span style="color:#000">drawWhiteSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#8f5902;font-style:italic">// keeping x and y form previous step, run in reverse to mirror
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bitChars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;001111000011110101101101101111100001100000001110&#39;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">sf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//scaling factor;
 </span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">--</span><span style="color:#000;font-weight:bold">)</span>
-  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">characterAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#0000cf;font-weight:bold">1</span>
-      <span style="color:#000">drawBlackSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">else</span>
-      <span style="color:#000">drawWhiteSquare</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bit</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">bitChars</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">charAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">Math</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">8</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">row</span><span style="color:#000;font-weight:bold">);</span>
+
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">bit</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#4e9a06">&#39;1&#39;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">c</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fillRect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
 </code></pre></div>
 
-<p>The algorithm to parse and render does become a bit more complex but we will tackle it a bit later.</p>
+<p>One thing to note in the algorithm above is how simple it was to mirror the columns in code. The instruction <code>5-col</code> - where 5 is the column about which we mirror - will take the column count into negative space e.g. 5,4,3,2,1,0,-1,-2,-3,-4,-5 but that is corrected easily using <code>Math.abs</code>.</p>
+
+<p>The simplicity of mirroring in terms of code is also a big positive for this approach.</p>
+
+<p>The binary sequence is now only <strong>48 bytes</strong> down from <strong>77 bytes</strong> which is a reduction of about <strong>37%</strong>. We should expect all shapes to take about <strong>~139 bytes</strong> altogether. 👍</p>
+
+<p>At 139 bytes it is probably not too bad already but there&rsquo;s a few more ways we can optimise it further. I will be discussing those in another post in detail.</p>
 
 <p><strong><em>To be continued &hellip;</em></strong></p>
   </section>
