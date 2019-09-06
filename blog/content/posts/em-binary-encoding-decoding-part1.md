@@ -108,7 +108,7 @@ for (var col = 0; col <= 10; col++) {
 }
 {{< /highlight >}}
 
-One thing to note in the algorithm above is how simple it was to mirror the columns in code. The instruction `5-col` - where 5 is the column about which we mirror - will take the column count into negative space e.g. 5,4,3,2,1,0,-1,-2,-3,-4,-5 but that is corrected easily using `Math.abs`.
+One thing to note in the algorithm above is how simple it was to mirror the columns in code. The instruction `5-col` - where 5 is the column about which we mirror - will take the column count into negative space e.g. `5,4,3,2,1,0,-1,-2,-3,-4,-5` but that is corrected easily using `Math.abs`.
 
 The simplicity of mirroring in terms of code is also a big positive for this approach.
 
