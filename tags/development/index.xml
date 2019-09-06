@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
-    <lastBuildDate>Thu, 05 Sep 2019 22:13:30 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 06 Sep 2019 12:20:14 +0100</lastBuildDate>
     
 	<atom:link href="https://www.shahrukhomar.com/tags/development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS Extreme Minification: Binary Char Encoding - Part 2</title>
+      <link>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part2/</link>
+      <pubDate>Fri, 06 Sep 2019 12:20:14 +0100</pubDate>
+      
+      <guid>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part2/</guid>
+      <description>&lt;p&gt;This is part 2 of binary character string encoding. In this part I discuss in detail how the encoding process was optimised even further to reduce the shape information to just a few bytes.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>JS Extreme Minification: Binary Char Encoding - Part 1</title>

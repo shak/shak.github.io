@@ -128,7 +128,7 @@
   <span style="color:#000;font-weight:bold">}</span>
 </code></pre></div>
 
-<p>In the example above, the alien encoded in binary chars is about <strong>77 bytes</strong>. We need 2 different alien shapes for the game so that&rsquo;s about <strong>~150 bytes</strong> plus maybe another <strong>60 bytes</strong> for the ship and add about another <strong>10 bytes</strong> for the bullet and the starts. So we are looking at <strong>~220 bytes</strong> in total.</p>
+<p>In the example above, the alien encoded in binary chars is about <strong>77 bytes</strong>. We need 2 different alien shapes for the game so that&rsquo;s about <strong>~150 bytes</strong> plus maybe another <strong>60 bytes</strong> for the ship and add about another <strong>10 bytes</strong> for the bullet and the starts. So we are looking at around <strong>~220 bytes</strong> in total.</p>
 
 <p>This is already looking better than the solutions discussed in the <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">previous post</a> so we are probably on the right track here.</p>
 
@@ -184,8 +184,8 @@
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bitChars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;001111000011110101101101101111100001100000001110&#39;</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">sf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//scaling factor;
 </span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bit</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">bitChars</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">charAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">Math</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">8</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">row</span><span style="color:#000;font-weight:bold">);</span>
 
     <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">bit</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#4e9a06">&#39;1&#39;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
@@ -199,9 +199,31 @@
 
 <p>The simplicity of mirroring in terms of code is also a big positive for this approach.</p>
 
-<p>The binary sequence is now only <strong>48 bytes</strong> down from <strong>77 bytes</strong> which is a reduction of about <strong>37%</strong>. We should expect all shapes to take about <strong>~139 bytes</strong> altogether. 👍</p>
+<p>The binary sequence is now only <strong>48 bytes</strong> down from <strong>77 bytes</strong>.</p>
 
-<p>At 139 bytes it is probably not too bad already but there&rsquo;s a few more ways we can optimise it further. I will be discussing those in another post in detail.</p>
+<table>
+<thead>
+<tr>
+<th>Optmisation</th>
+<th>Alien size</th>
+<th>% Diff. form original</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Original</td>
+<td>77 bytes</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td>Mirroring</td>
+<td>48 bytes</td>
+<td>-37.66%</td>
+</tr>
+</tbody>
+</table>
 
 <p><strong><em>To be continued &hellip;</em></strong></p>
   </section>
@@ -211,6 +233,7 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
+          <a href="https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part2/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
