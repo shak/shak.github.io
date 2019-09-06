@@ -1,7 +1,7 @@
 ---
 title: "JS Extreme Minification: Binary Char Encoding - Part 1"
 date: 2019-09-05T22:13:30+01:00
-draft: false
+draft: true
 tags: ["Extreme Minification", "Development", "Code Calisthenics"]
 categories: ["Development"]
 ---
@@ -72,18 +72,18 @@ instead of encoding row by row, this step requires us to encode column by column
 {{% figure src="/img/alien_sideways.png#center" width="50%"%}}
 
 ```
-01110000 // pink
+00001110 // pink
 00011000 // blue
-01111101 // green
-10110110 // etc.
-10111100
+10111110 // green
+01101101 // etc.
+00111101
 00111100
 ```
 
 This can be represented as binary char string:
 
 ```
-011100000001100001111101101101101011110000111100
+000011100001100010111110011011010011110100111100
 ```
 
 The sequence is now **48 bytes** down from **77 bytes** that is a reduction of about **37%** so we should expect all shapes to take about **~139 bytes** altogether. :+1:
