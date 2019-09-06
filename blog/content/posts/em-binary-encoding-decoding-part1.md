@@ -52,7 +52,7 @@ To decode and draw the shape, we will simply need to run a nested loop. The oute
   }
 {{< /highlight >}}
 
-In the example above, the alien encoded in binary chars is about **77 bytes**. We need 2 different alien shapes for the game so that's about **~150 bytes** plus maybe another **60 bytes** for the ship and add about another **10 bytes** for the bullet and the starts. So we are looking at **~220 bytes** in total.
+In the example above, the alien encoded in binary chars is about **77 bytes**. We need 2 different alien shapes for the game so that's about **~150 bytes** plus maybe another **60 bytes** for the ship and add about another **10 bytes** for the bullet and the starts. So we are looking at around **~220 bytes** in total.
 
 This is already looking better than the solutions discussed in the [previous post]({{< ref "/posts/em-encoding-shapes.md" >}}) so we are probably on the right track here.
 
@@ -97,8 +97,8 @@ Minor changes have been made to parse and render the map to make it read and ren
 const bitChars = '001111000011110101101101101111100001100000001110';
 const sf = 6; //scaling factor;
 
-for (var col = 0; col <= 10; col++) {
-  for (var row = 0; row <= 7; row++) {
+for (let col = 0; col <= 10; col++) {
+  for (let row = 0; row <= 7; row++) {
     const bit = bitChars.charAt(Math.abs(5-col) * 8 + row);
 
     if (bit === '1') {
@@ -112,9 +112,12 @@ One thing to note in the algorithm above is how simple it was to mirror the colu
 
 The simplicity of mirroring in terms of code is also a big positive for this approach.
 
-The binary sequence is now only **48 bytes** down from **77 bytes** which is a reduction of about **37%**. We should expect all shapes to take about **~139 bytes** altogether. :+1:
+The binary sequence is now only **48 bytes** down from **77 bytes**.
 
-At 139 bytes it is probably not too bad already but there's a few more ways we can optimise it further. I will be discussing those in another post in detail.
+| Optmisation        | Alien size | % Diff. form original |
+|--------------------|------------|-----------------------|
+| Original           | 77 bytes   | -                     |
+| Mirroring          | 48 bytes   | -37.66%                |
 
 ***To be continued ...***
 
