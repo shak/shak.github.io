@@ -32,10 +32,17 @@
   
   
   
-  <meta name="generator" content="Hugo 0.49.2" /><link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
+  <meta name="generator" content="Hugo 0.91.2" />
+  
+    
+  
+  
+
+  <link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
   
   <link rel="stylesheet" href="https://www.shahrukhomar.com/css/custom.css">
   <link rel='icon' type='image/x-icon' href="https://www.shahrukhomar.com/img/favicon.ico" />
+  
   <script type="text/javascript" src="https://www.shahrukhomar.com/js/bundle.js"></script>
   
 
@@ -55,18 +62,34 @@
     </p>
     
   </header>
+
   <main id="main" class="l-main">
 
 
 <article class="p-article">
   <header>
     <h1>Github Worktrees</h1>
+    
     <div>
-      <div class="c-time">
-        Posted on
-        <time datetime="2017-12-10T19:31:57Z">
-          Dec 10, 2017
-        </time>
+        <div class="c-meta">
+        
+           Posted on
+<time datetime="2017-12-10T19:31:57Z">
+  Dec 10, 2017
+</time>
+
+        
+        
+        
+         | 
+           
+
+
+~2 mins
+
+
+        
+        </div>
       </div>
       
       <a href="https://www.shahrukhomar.com/tags/github" class="c-tag">Github</a>
@@ -76,50 +99,37 @@
       <a href="https://www.shahrukhomar.com/tags/tools" class="c-tag">Tools</a>
       
     </div>
+    
   </header>
   
   <section id="js-article" class="p-article__body">
     <p>Recently I needed another copy of the git repository I was working on but it seemed like an awful lot of work cloning it another folder and then switching back and forth and fetching/pushing to keep it all up-to-date.</p>
-
-<p></p>
-
 <p>This is where <code>git worktree</code> can be a very useful feature.</p>
-
 <p>Git &ldquo;worktrees&rdquo; gives you a full working copy of your repository that you can treat like any other clone? So why are &ldquo;worktrees&rdquo; better than simply cloning repositories?</p>
-
 <p>A few reasons:</p>
-
 <ul>
 <li>&ldquo;worktrees&rdquo; are hard linked, so they are really light-weight and unlike clones they don&rsquo;t pull the entire repository locally.</li>
 <li>You can access locally committed changes across different &ldquo;worktrees&rdquo;. With cloned repositories you&rsquo;d need to push the changes upstream and then fetch in a different clone where those changes are required.</li>
 <li>You can switch between &ldquo;worktrees&rdquo; without affecting changes in your current repo. So all the goodness of clones but without the additional overhead.</li>
 </ul>
-
 <h4 id="how-to">How to</h4>
-
 <p>To create a &ldquo;worktree&rdquo; simply run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"># git worktree add -b &lt;new-branch&gt; &lt;directory&gt; &lt;upstream&gt;/&lt;branch&gt;</code></pre></div>
-<p><a href="https://git-scm.com/docs/git-worktree">Documentation on git branch can be found here</a>.</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#8f5902;font-style:italic"># git worktree add -b &lt;new-branch&gt; &lt;directory&gt; &lt;upstream&gt;/&lt;branch&gt;</span>
+</code></pre></div><p><a href="https://git-scm.com/docs/git-worktree">Documentation on git branch can be found here</a>.</p>
 <h3 id="use-cases">Use Cases</h3>
-
 <p>Following are some use-cases from my personal experiences to give you an idea when and how can &ldquo;worktrees&rdquo; be useful.</p>
-
 <h4 id="running-tests">Running tests</h4>
-
 <p>Before I had access to CI testing services on my testable repositories, I would create a &ldquo;worktree&rdquo; for branch that was ready to be merged, <code>cd</code> into the worktree directory and run the tests. In the meantime I would <code>cd</code> back to my working directory and carry on working while the tests ran in the background.</p>
-
 <p>Once tests finished and I was happy with the outcome, I would merge the branch and simply delete the worktree directory. This is especially useful if you are low on <code>inodes</code> or <code>storage</code> or if that is a concern (as it was in my case).</p>
-
 <p>I still sometimes do that when I want to run the tests in the background so I can continue working on code.</p>
-
 <h4 id="building-github-pages">Building &ldquo;Github Pages&rdquo;</h4>
-
 <p>Those who use Github Pages would know that it is possible to publish your site from the <code>gh-pages</code> branches. Normally, to deploy changes to your Github Pages you would switch the <code>gh-pages</code> branch, build the site and then push up.</p>
-
 <p>With worktrees, I create a &ldquo;worktree&rdquo; for the <code>gh-pages</code> branch in the <code>dist</code> folder. Then I can compile/build my site directly into the <code>dist</code> folder, <code>cd</code> into it and then push it up which will always update the <code>gh-pages</code>.</p>
   </section>
   <footer>
+    
+    
+
     
     <nav class="p-pagination c-pagination">
       <div class="c-pagination__ctrl">
@@ -130,10 +140,10 @@
         </div>
         <div class="c-pagination__older">
           
-          
         </div>
       </div>
     </nav>
+    
     
 
 
@@ -210,10 +220,6 @@
       
     </p>
   </footer>
-
-  
-    
-  
 
 </body>
 </html>

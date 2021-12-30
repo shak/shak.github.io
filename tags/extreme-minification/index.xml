@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Extreme Minification on Shahrukh Omar</title>
@@ -7,20 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
-    <lastBuildDate>Fri, 06 Sep 2019 12:20:14 +0100</lastBuildDate>
-    
-	<atom:link href="https://www.shahrukhomar.com/tags/extreme-minification/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 06 Sep 2019 12:20:14 +0100</lastBuildDate><atom:link href="https://www.shahrukhomar.com/tags/extreme-minification/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JS Extreme Minification: Binary Char Encoding - Part 2</title>
       <link>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part2/</link>
       <pubDate>Fri, 06 Sep 2019 12:20:14 +0100</pubDate>
       
       <guid>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part2/</guid>
-      <description>&lt;p&gt;This is part 2 of binary character string encoding. In this part I discuss in detail how the encoding process was optimised even further to reduce the shape information to just a few bytes.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is part 2 of binary character string encoding. In this part I discuss in detail how the encoding process was optimised even further to reduce the shape information to just a few bytes.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +23,7 @@
       <pubDate>Thu, 05 Sep 2019 22:13:30 +0100</pubDate>
       
       <guid>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part1/</guid>
-      <description>&lt;p&gt;This post documents the process of binary char encoding that was used for the js1k space invaders project.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;This post documents the process of binary char encoding that was used for the js1k space invaders project.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -40,9 +32,7 @@
       <pubDate>Thu, 05 Sep 2019 20:53:45 +0100</pubDate>
       
       <guid>https://www.shahrukhomar.com/posts/em-encoding-shapes/</guid>
-      <description>&lt;p&gt;One of the biggest challenges while doing my js1k challenge was rendering shapes. In this part of the series I will discuss in detail the various possibilities of drawing shapes and why I chose to go with binary char encoding.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;One of the biggest challenges while doing my js1k challenge was rendering shapes. In this part of the series I will discuss in detail the various possibilities of drawing shapes and why I chose to go with binary char encoding.&lt;/p&gt;</description>
     </item>
     
   </channel>

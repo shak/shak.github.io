@@ -32,10 +32,17 @@
   
   
   
-  <meta name="generator" content="Hugo 0.49.2" /><link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
+  <meta name="generator" content="Hugo 0.91.2" />
+  
+    
+  
+  
+
+  <link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
   
   <link rel="stylesheet" href="https://www.shahrukhomar.com/css/custom.css">
   <link rel='icon' type='image/x-icon' href="https://www.shahrukhomar.com/img/favicon.ico" />
+  
   <script type="text/javascript" src="https://www.shahrukhomar.com/js/bundle.js"></script>
   
 
@@ -55,18 +62,34 @@
     </p>
     
   </header>
+
   <main id="main" class="l-main">
 
 
 <article class="p-article">
   <header>
     <h1>JS Extreme Minification: Binary Char Encoding - Part 1</h1>
+    
     <div>
-      <div class="c-time">
-        Posted on
-        <time datetime="2019-09-05T22:13:30&#43;01:00">
-          Sep 5, 2019
-        </time>
+        <div class="c-meta">
+        
+           Posted on
+<time datetime="2019-09-05T22:13:30&#43;01:00">
+  Sep 5, 2019
+</time>
+
+        
+        
+        
+         | 
+           
+
+
+~4 mins
+
+
+        
+        </div>
       </div>
       
       <a href="https://www.shahrukhomar.com/tags/extreme-minification" class="c-tag">Extreme Minification</a>
@@ -76,45 +99,27 @@
       <a href="https://www.shahrukhomar.com/tags/code-calisthenics" class="c-tag">Code Calisthenics</a>
       
     </div>
+    
   </header>
   
   <section id="js-article" class="p-article__body">
     <p>This post documents the process of binary char encoding that was used for the js1k space invaders project.</p>
-
-<p></p>
-
 <p>In my <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">previous post</a> I discussed why binary char encoding was chosen to draw character shapes in the game and how it benefits from <code>canvas.fillRect</code> which we already have available to us in the <code>js1k</code> shim.</p>
-
 <p>Using <code>space invaders</code> alien as an example for this post, it can be seen that the alien shape can be drawn as a series of black and white sqaures in a 11x8 grid.</p>
-
-
-<figure>
-    
-        <img src="/img/alien_flat.png#center" width="50%" />
-    
-    
+<figure><img src="/img/alien_flat.png#center" width="50%"/>
 </figure>
-
-
 <p>When using a monochrome colour pallete, the grid can be then represented using a series of 1&rsquo;s and 0&rsquo;s. 1 being black square and 0 being a white.</p>
-
-<pre><code>00100000100 // pink
+<pre tabindex="0"><code>00100000100 // pink
 00010001000 // blue
 00111111100 // green
 01101110110 // etc.
 11111111111
 10100000101
 00011011000
-</code></pre>
-
-<p>Information from the grid can be serialised into a single binary char string that contains the information about colour and position for each pixel in the character shape.</p>
-
-<pre><code>00100000100000100010000011111110001101110110111111111111010000010100011011000
-</code></pre>
-
-<p>To decode and draw the shape, we will simply need to run a nested loop. The outer loop will draw rows while the inner loop will draw the columns while the value of each char in the binary string will either paint a black square or a white square.</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bitChars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;00100000100000100010000011111110001101110110111111111111010000010100011011000&#39;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre><p>Information from the grid can be serialised into a single binary char string that contains the information about colour and position for each pixel in the character shape.</p>
+<pre tabindex="0"><code>00100000100000100010000011111110001101110110111111111111010000010100011011000
+</code></pre><p>To decode and draw the shape, we will simply need to run a nested loop. The outer loop will draw rows while the inner loop will draw the columns while the value of each char in the binary string will either paint a black square or a white square.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bitChars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;00100000100000100010000011111110001101110110111111111111010000010100011011000&#39;</span><span style="color:#000;font-weight:bold">;</span>
   <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">sf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//scaling factor;
 </span><span style="color:#8f5902;font-style:italic"></span>
   <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
@@ -125,63 +130,31 @@
           <span style="color:#000">context</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fillRect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">);</span>
       <span style="color:#000;font-weight:bold">}</span>
     <span style="color:#000;font-weight:bold">}</span>
-  <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div>
-
+  <span style="color:#000;font-weight:bold">}</span></code></pre></div>
 <p>In the example above, the alien encoded in binary chars is about <strong>77 bytes</strong>. We need 2 different alien shapes for the game so that&rsquo;s about <strong>~150 bytes</strong> plus maybe another <strong>60 bytes</strong> for the ship and add about another <strong>10 bytes</strong> for the bullet and the starts. So we are looking at around <strong>~220 bytes</strong> in total.</p>
-
 <p>This is already looking better than the solutions discussed in the <a href="https://www.shahrukhomar.com/posts/em-encoding-shapes/">previous post</a> so we are probably on the right track here.</p>
-
 <p>However, we must optimise it still to achieve the <strong>1,024 byte</strong> goal.</p>
-
 <h3 id="optimisation-1-mirroring">Optimisation 1: Mirroring</h3>
-
 <p>One benefit of the <code>space invader</code> esque alien shapes is that they are symmetrical along the y-axis. I assume the space invader devs back in the day had similar challenges to my js1k project where they were constained by available memory, processing power and storage space.</p>
-
 <p>Mirroring would allow us to define only half the shape of the alien in the binary char string and we can draw the other half using the same information but in reverse.</p>
-
-
-<figure>
-    
-        <img src="/img/alien_half.png#center" width="50%" />
-    
-    
+<figure><img src="/img/alien_half.png#center" width="50%"/>
 </figure>
-
-
 <p>However this approach will not work with how we are parsing and rendering our binary char map because the algorithm above renders row by row starting from the top whereas our shape is mirrored about the y-axis.</p>
-
 <p>To make this work, we will need to encode and parse the shape column wise.</p>
-
 <h3 id="optimisation-2-going-sideways">Optimisation 2: Going Sideways</h3>
-
 <p>To help keep the algorithm simple and easy to understand, I have rotated the shape counter-clockwise for this step but essentially it is the same shape.</p>
-
-
-<figure>
-    
-        <img src="/img/alien_sideways.png#center" width="50%" />
-    
-    
+<figure><img src="/img/alien_sideways.png#center" width="50%"/>
 </figure>
-
-
-<pre><code>00111100
+<pre tabindex="0"><code>00111100
 00111101
 01101101 // etc.
 10111110 // green
 00011000 // blue
 00001110 // pink
-</code></pre>
-
-<p>The binary char map above serialises to binary char string as follows:</p>
-
-<pre><code>001111000011110101101101101111100001100000001110
-</code></pre>
-
-<p>Minor changes have been made to parse and render the map to make it read and render column first.</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bitChars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;001111000011110101101101101111100001100000001110&#39;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre><p>The binary char map above serialises to binary char string as follows:</p>
+<pre tabindex="0"><code>001111000011110101101101101111100001100000001110
+</code></pre><p>Minor changes have been made to parse and render the map to make it read and render column first.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">bitChars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;001111000011110101101101101111100001100000001110&#39;</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">sf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//scaling factor;
 </span><span style="color:#8f5902;font-style:italic"></span>
 <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
@@ -192,15 +165,10 @@
       <span style="color:#000">c</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fillRect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">);</span>
     <span style="color:#000;font-weight:bold">}</span>
   <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></div>
-
+<span style="color:#000;font-weight:bold">}</span></code></pre></div>
 <p>One thing to note in the algorithm above is how simple it was to mirror the columns in code. The instruction <code>5-col</code> - where 5 is the column about which we mirror - will take the column count into negative space e.g. <code>5,4,3,2,1,0,-1,-2,-3,-4,-5</code> but that is corrected easily using <code>Math.abs</code>.</p>
-
 <p>The simplicity of mirroring in terms of code is also a big positive for this approach.</p>
-
 <p>The binary sequence is now only <strong>48 bytes</strong> down from <strong>77 bytes</strong>.</p>
-
 <table>
 <thead>
 <tr>
@@ -209,14 +177,12 @@
 <th>% Diff. form original</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Original</td>
 <td>77 bytes</td>
 <td>-</td>
 </tr>
-
 <tr>
 <td>Mirroring</td>
 <td>48 bytes</td>
@@ -224,10 +190,12 @@
 </tr>
 </tbody>
 </table>
-
-<p><strong><em>To be continued &hellip;</em></strong></p>
+<p><em><strong>To be continued &hellip;</strong></em></p>
   </section>
   <footer>
+    
+    
+
     
     <nav class="p-pagination c-pagination">
       <div class="c-pagination__ctrl">
@@ -244,26 +212,34 @@
       </div>
     </nav>
     
+    
 
 <section class="p-related">
   <h3>See Also</h3>
-  <ul id="slider" class="p-related__list">
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/em-encoding-shapes/"
-        >
-        <span>JS Extreme Minification: Encoding Shapes</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/github-worktrees/"
-        >
-        <span>Github Worktrees</span>
-      </a>
-    </li>
-    
-  </ul>
+  <div class="p-related__list">
+    <div class="swiper-container">
+      <ul class="swiper-wrapper">
+        
+        <li class="p-related__item swiper-slide">
+          <a href="/posts/em-encoding-shapes/"
+            >
+            <span>JS Extreme Minification: Encoding Shapes</span>
+          </a>
+        </li>
+        
+        <li class="p-related__item swiper-slide">
+          <a href="/posts/github-worktrees/"
+            >
+            <span>Github Worktrees</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div class="related-prev"></div>
+    <div class="related-next"></div>
+  </div>
+  
 </section>
 
 
@@ -340,10 +316,6 @@
       
     </p>
   </footer>
-
-  
-    
-  
 
 </body>
 </html>

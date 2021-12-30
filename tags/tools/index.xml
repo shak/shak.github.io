@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tools on Shahrukh Omar</title>
@@ -7,20 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
-    <lastBuildDate>Sun, 10 Dec 2017 19:31:57 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.shahrukhomar.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 10 Dec 2017 19:31:57 +0000</lastBuildDate><atom:link href="https://www.shahrukhomar.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github Worktrees</title>
       <link>https://www.shahrukhomar.com/posts/github-worktrees/</link>
       <pubDate>Sun, 10 Dec 2017 19:31:57 +0000</pubDate>
       
       <guid>https://www.shahrukhomar.com/posts/github-worktrees/</guid>
-      <description>&lt;p&gt;Recently I needed another copy of the git repository I was working on but it seemed like an awful lot of work cloning it another folder and then switching back and forth and fetching/pushing to keep it all up-to-date.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Recently I needed another copy of the git repository I was working on but it seemed like an awful lot of work cloning it another folder and then switching back and forth and fetching/pushing to keep it all up-to-date.&lt;/p&gt;</description>
     </item>
     
   </channel>

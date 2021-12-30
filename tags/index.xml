@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Shahrukh Omar</title>
@@ -7,10 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
-    <lastBuildDate>Fri, 06 Sep 2019 12:20:14 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 30 Dec 2021 18:33:28 +0400</lastBuildDate><atom:link href="https://www.shahrukhomar.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Attractor Functions</title>
+      <link>https://www.shahrukhomar.com/tags/attractor-functions/</link>
+      <pubDate>Thu, 30 Dec 2021 18:33:28 +0400</pubDate>
+      
+      <guid>https://www.shahrukhomar.com/tags/attractor-functions/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://www.shahrukhomar.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Development</title>
+      <link>https://www.shahrukhomar.com/tags/development/</link>
+      <pubDate>Thu, 30 Dec 2021 18:33:28 +0400</pubDate>
+      
+      <guid>https://www.shahrukhomar.com/tags/development/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>P5JS</title>
+      <link>https://www.shahrukhomar.com/tags/p5js/</link>
+      <pubDate>Thu, 30 Dec 2021 18:33:28 +0400</pubDate>
+      
+      <guid>https://www.shahrukhomar.com/tags/p5js/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Code Calisthenics</title>
@@ -18,15 +41,6 @@
       <pubDate>Fri, 06 Sep 2019 12:20:14 +0100</pubDate>
       
       <guid>https://www.shahrukhomar.com/tags/code-calisthenics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>https://www.shahrukhomar.com/tags/development/</link>
-      <pubDate>Fri, 06 Sep 2019 12:20:14 +0100</pubDate>
-      
-      <guid>https://www.shahrukhomar.com/tags/development/</guid>
       <description></description>
     </item>
     

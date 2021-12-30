@@ -15,6 +15,11 @@ pygmentsCodeFences = true
   category = "categories"
   series = "series"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   paginate = 10
   # Social accounts. Link to these accounts are displayed in the header and footer
@@ -35,3 +40,6 @@ pygmentsCodeFences = true
   # logo = "/img/logo.png"
   favicon = "/img/favicon.ico"
   custom_css = ["css/custom.css"]
+  hideModifiedDate = true
+  hideWordCount = true
+  hideReadingTime = false

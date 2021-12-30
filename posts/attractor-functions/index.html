@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Tags</title>
-  <meta property="og:title" content="Tags" />
-  <meta name="twitter:title" content="Tags" />
+  <title>Attractor Functions</title>
+  <meta property="og:title" content="Attractor Functions" />
+  <meta name="twitter:title" content="Attractor Functions" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="Shahrukh Omar" />
-  <meta property="og:url" content="https://www.shahrukhomar.com/tags/" />
+  <meta property="og:url" content="https://www.shahrukhomar.com/posts/attractor-functions/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -28,7 +28,8 @@
   
 
   
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
+  
   
   
   <meta name="generator" content="Hugo 0.91.2" />
@@ -53,7 +54,7 @@
 
   <header class="l-header">
     
-    <h1 class="c-title p-title"><a href="https://www.shahrukhomar.com/" class="p-title__link">Shahrukh Omar</a></h1>
+    <p class="c-title p-title"><a href="https://www.shahrukhomar.com/" class="p-title__link">Shahrukh Omar</a></p>
     
     
     <p class="p-subtitle">
@@ -65,27 +66,136 @@
   <main id="main" class="l-main">
 
 
-<section>
-  <h2>Tags</h2>
-  <ul>
+<article class="p-article">
+  <header>
+    <h1>Attractor Functions</h1>
+    
+    <div>
+        <div class="c-meta">
+        
+           Posted on
+<time datetime="2021-12-30T18:33:28&#43;04:00">
+  Dec 30, 2021
+</time>
+
+        
+        
+        
+         | 
+           
+
+
+~2 mins
+
+
+        
+        </div>
+      </div>
+      
+      <a href="https://www.shahrukhomar.com/tags/p5js" class="c-tag">P5JS</a>
+      
+      <a href="https://www.shahrukhomar.com/tags/development" class="c-tag">Development</a>
+      
+      <a href="https://www.shahrukhomar.com/tags/attractor-functions" class="c-tag">Attractor Functions</a>
+      
+    </div>
+    
+  </header>
+  
+  <section id="js-article" class="p-article__body">
+    <p>I recently discovered <a href="https://p5js.org/">p5js</a> that takes all the hardwork out of rendering on canvas and allows you to focus on the functional part of the application. As an experiment, I decided to investigate attractor functions.</p>
+<p>I do not understand the mathematics of attractors to great extent and therefore I am unable to dig into the details but roughly speaking an attractor function defines a set of states towards which the system will tend to evolve.</p>
+<p>These functions are defined as a set of equations in n number of dimensions. The functions also define parameters which determine the - to put it in very non-technical terms - state the system will tend towards.</p>
+<h2 id="clifford-attractor">Clifford Attractor</h2>
+<p>The first attractor I tried was Clifford attractor, mainly for it&rsquo;s simplicity.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//a, b, c &amp; d are the function parameters
+</span><span style="color:#8f5902;font-style:italic">// xn &amp; yn are the value from previous iteration
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">d</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<p>I ran it for 10 million points with each point iterated 5 times using the Clifford attractor.</p>
+<figure><img src="/img/clifford_coloured.png#center"
+         alt="Image showing clifford attractor function rendered using points"/>
+</figure>
+<h2 id="jason-rampe-attractor">Jason Rampe Attractor</h2>
+<p>Jason Rampe was is an iteration on Cifford function using the same dimensions and similar number of parameters.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//a, b, c &amp; d are the function parameters
+</span><span style="color:#8f5902;font-style:italic">// xn &amp; yn are the value from previous iteration
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">d</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<p>I ran it for 10 million points with each point iterated 5 times using the Jason Rampe attractor.</p>
+<figure><img src="/img/rampe_coloured.png#center"
+         alt="Image showing Jason Rampe attractor function rendered using points"/>
+</figure>
+  </section>
+  <footer>
     
     
-    <li><a href="https://www.shahrukhomar.com/tags/attractor-functions">attractor-functions</a> (1)</li>
+
     
-    <li><a href="https://www.shahrukhomar.com/tags/code-calisthenics">code-calisthenics</a> (3)</li>
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          <a href="https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part2/">Older</a>
+          
+        </div>
+      </div>
+    </nav>
     
-    <li><a href="https://www.shahrukhomar.com/tags/development">development</a> (5)</li>
     
-    <li><a href="https://www.shahrukhomar.com/tags/extreme-minification">extreme-minification</a> (3)</li>
-    
-    <li><a href="https://www.shahrukhomar.com/tags/github">github</a> (1)</li>
-    
-    <li><a href="https://www.shahrukhomar.com/tags/p5js">p5js</a> (1)</li>
-    
-    <li><a href="https://www.shahrukhomar.com/tags/tools">tools</a> (1)</li>
-    
-  </ul>
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <div class="p-related__list">
+    <div class="swiper-container">
+      <ul class="swiper-wrapper">
+        
+        <li class="p-related__item swiper-slide">
+          <a href="/posts/em-binary-encoding-decoding-part2/"
+            >
+            <span>JS Extreme Minification: Binary Char Encoding - Part 2</span>
+          </a>
+        </li>
+        
+        <li class="p-related__item swiper-slide">
+          <a href="/posts/em-binary-encoding-decoding-part1/"
+            >
+            <span>JS Extreme Minification: Binary Char Encoding - Part 1</span>
+          </a>
+        </li>
+        
+        <li class="p-related__item swiper-slide">
+          <a href="/posts/em-encoding-shapes/"
+            >
+            <span>JS Extreme Minification: Encoding Shapes</span>
+          </a>
+        </li>
+        
+        <li class="p-related__item swiper-slide">
+          <a href="/posts/github-worktrees/"
+            >
+            <span>Github Worktrees</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div class="related-prev"></div>
+    <div class="related-next"></div>
+  </div>
+  
 </section>
+
+
+    
+
+  </footer>
+</article>
   </main>
   
 
