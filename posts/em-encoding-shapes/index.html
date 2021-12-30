@@ -39,6 +39,7 @@
   
 
   <link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
+  <link rel="manifest" href="https://www.shahrukhomar.com/manifest.json">
   
   <link rel="stylesheet" href="https://www.shahrukhomar.com/css/custom.css">
   <link rel='icon' type='image/x-icon' href="https://www.shahrukhomar.com/img/favicon.ico" />
@@ -265,8 +266,21 @@
         &copy; Shahrukh Omar
       
     </p>
-  </footer>
+  </footer><script>
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/sw.js', { scope: '/' })
+      .then(function(registration) {
+        
+      });
 
+    navigator.serviceWorker
+      .ready
+      .then(function(registration) {
+        
+      });
+  }
+</script>
 </body>
 </html>
 
