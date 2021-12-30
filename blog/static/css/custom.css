@@ -8,3 +8,10 @@ figcaption p {
     font-style: italic;
     text-align: center;
 }
+
+.c-article__hr {
+    display: block;
+    width: 30%;
+    border-bottom: 1px solid #ddd;
+    margin: 30px 0;
+}
