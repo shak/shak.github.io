@@ -43,3 +43,8 @@ pygmentsCodeFences = true
   hideModifiedDate = true
   hideWordCount = true
   hideReadingTime = false
+
+[related]
+  # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
+  threshold = 0
+
