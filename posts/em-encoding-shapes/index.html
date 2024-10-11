@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-gb">
+<html lang="en-gb" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
   <title>JS Extreme Minification: Encoding Shapes</title>
   <meta property="og:title" content="JS Extreme Minification: Encoding Shapes" />
@@ -32,21 +32,13 @@
   
   
   
-  <meta name="generator" content="Hugo 0.91.2" />
-  
-    
-  
-  
-
-  <link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
-  <link rel="manifest" href="https://www.shahrukhomar.com/manifest.json">
+  <meta name="generator" content="Hugo 0.134.3"><link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
   
   <link rel="stylesheet" href="https://www.shahrukhomar.com/css/custom.css">
   <link rel='icon' type='image/x-icon' href="https://www.shahrukhomar.com/img/favicon.ico" />
   
-  <script type="text/javascript" src="https://www.shahrukhomar.com/js/bundle.js"></script>
-  
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7365997168376286" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -66,7 +58,6 @@
 
   <main id="main" class="l-main">
 
-
 <article class="p-article">
   <header>
     <h1>JS Extreme Minification: Encoding Shapes</h1>
@@ -83,11 +74,7 @@
         
         
          | 
-           
-
-
-~3 mins
-
+           ~3mins
 
         
         </div>
@@ -117,34 +104,34 @@
 <li>Shapes for the stars (and perhaps planets too?)</li>
 </ul>
 <h2 id="searching-for-the-solution">Searching For The Solution</h2>
-<h3 id="-solution-1-svgs">🚫 Solution 1: SVGs</h3>
+<h3 id="no_entry_sign-solution-1-svgs">&#x1f6ab; Solution 1: SVGs</h3>
 <p>The original space invader images looked like they would translate to SVG quite nicely. So that was the first potential solution I looked into.</p>
 <img src="/img/space_invaders_original.png" alt="JS Extreme Minification: Encoding Shapes /img/space_invaders_original.png" class="img-zoomable">
 <p>I drew half the alien and then mirror flipped it.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-svg" data-lang="svg"><span style="color:#204a87;font-weight:bold">&lt;svg</span> <span style="color:#c4a000">viewBox=</span><span style="color:#4e9a06">&#34;0 0 350 257&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-  <span style="color:#204a87;font-weight:bold">&lt;g</span> <span style="color:#c4a000">id=</span><span style="color:#4e9a06">&#34;hsi&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M0 127h176v65H0z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M64 63h32v161H64z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M96 224h64v33H96z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M64 0h32v33H64z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M31 97h38v33H31z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M0 190h32v33H0z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M95 32h33v65h-33z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M128 64h48v65h-48z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M63 63h112v33H63z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-  <span style="color:#204a87;font-weight:bold">&lt;/g&gt;</span>
-  <span style="color:#204a87;font-weight:bold">&lt;use</span> <span style="color:#c4a000">xlink:href=</span><span style="color:#4e9a06">&#34;#hsi&#34;</span> <span style="color:#c4a000">transform=</span><span style="color:#4e9a06">&#34;translate(350, 0) scale(-1, 1)&#34;</span><span style="color:#204a87;font-weight:bold">&gt;&lt;/use&gt;</span>
-<span style="color:#204a87;font-weight:bold">&lt;/svg&gt;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-svg" data-lang="svg"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&lt;svg</span> <span style="color:#c4a000">viewBox=</span><span style="color:#4e9a06">&#34;0 0 350 257&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&lt;g</span> <span style="color:#c4a000">id=</span><span style="color:#4e9a06">&#34;hsi&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M0 127h176v65H0z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M64 63h32v161H64z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M96 224h64v33H96z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M64 0h32v33H64z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M31 97h38v33H31z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M0 190h32v33H0z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M95 32h33v65h-33z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M128 64h48v65h-48z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;path</span> <span style="color:#c4a000">d=</span><span style="color:#4e9a06">&#34;M63 63h112v33H63z&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&lt;/g&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&lt;use</span> <span style="color:#c4a000">xlink:href=</span><span style="color:#4e9a06">&#34;#hsi&#34;</span> <span style="color:#c4a000">transform=</span><span style="color:#4e9a06">&#34;translate(350, 0) scale(-1, 1)&#34;</span><span style="color:#204a87;font-weight:bold">&gt;&lt;/use&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&lt;/svg&gt;</span></span></span></code></pre></div>
 <p>At this point I was going to optimise and minify the SVG but &hellip; just <em>half</em> of the first alien is <strong>377 bytes</strong> which is about a quarter of my entire byte allowance so this was not going to work.</p>
 <p>Also, considering the code I would have required to create and insert SVG element into the DOM would have made this approach impractical.</p>
-<h3 id="-solution-2-base-64-encoded-image">🚫 Solution 2: Base 64 Encoded Image</h3>
+<h3 id="no_entry_sign-solution-2-base-64-encoded-image">&#x1f6ab; Solution 2: Base 64 Encoded Image</h3>
 <p>OK. So we can base 64 encode images. I can potentially put all images into a single sprite and some how crop it and render it to create the aliens.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#4e9a06">&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAEACAYAAAADRnAGAAACGUlEQVR42u3aSQ7CMBAEQIsn8P+/hiviAAK8zFIt5QbELiTHmfEYE3L9mZE9AAAAqAVwBQ8AAAD6THY5CgAAAKbfbPX3AQAAYBEEAADAuZrC6UUyfMEEAIBiAN8OePXnAQAAsLcmmKFPAQAAgHMbm+gbr3Sdo/LtcAAAANR6GywPAgBAM4D2JXAAABoBzBjA7AmlOx8AAEAzAOcDAADovTc4vQim6wUCABAYQG8QAADd4dPd2fRVYQAAANQG0B4HAABAawDnAwAA6AXgfAAAALpA2uMAAABwPgAAgPoAM9Ci/R4AAAD2dmqcEQIAIC/AiQGuAAYAAECcRS/a/cJXkUf2AAAAoBaA3iAAALrD+gIAAADY9baX/nwAAADNADwFAADo9YK0e5FMX/UFACA5QPSNEAAAAHKtCekmDAAAAADvBljtfgAAAGgMMGOrunvCy2uCAAAACFU6BwAAwF6AGQPa/XsAAADYB+B8AAAAtU+ItD4OAwAAAFVhAACaA0T7B44/BQAAANALwGMQAAAAADYO8If2+P31AgAAQN0SWbhFDwCAZlXgaO1xAAAA1FngnA8AACAeQPSNEAAAAM4CnC64AAAA4GzN4N9NSfgKEAAAAACszO26X8/X6BYAAAD0Anid8KcLAAAAAAAAAJBnwNEvAAAA9Jns1ygAAAAAAAAAAAAAAAAAAABAQ4COCENERERERERERBrnAa1sJuUVr3rsAAAAAElFTkSuQmCC&#39;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#4e9a06">&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAEACAYAAAADRnAGAAACGUlEQVR42u3aSQ7CMBAEQIsn8P+/hiviAAK8zFIt5QbELiTHmfEYE3L9mZE9AAAAqAVwBQ8AAAD6THY5CgAAAKbfbPX3AQAAYBEEAADAuZrC6UUyfMEEAIBiAN8OePXnAQAAsLcmmKFPAQAAgHMbm+gbr3Sdo/LtcAAAANR6GywPAgBAM4D2JXAAABoBzBjA7AmlOx8AAEAzAOcDAADovTc4vQim6wUCABAYQG8QAADd4dPd2fRVYQAAANQG0B4HAABAawDnAwAA6AXgfAAAALpA2uMAAABwPgAAgPoAM9Ci/R4AAAD2dmqcEQIAIC/AiQGuAAYAAECcRS/a/cJXkUf2AAAAoBaA3iAAALrD+gIAAADY9baX/nwAAADNADwFAADo9YK0e5FMX/UFACA5QPSNEAAAAHKtCekmDAAAAADvBljtfgAAAGgMMGOrunvCy2uCAAAACFU6BwAAwF6AGQPa/XsAAADYB+B8AAAAtU+ItD4OAwAAAFVhAACaA0T7B44/BQAAANALwGMQAAAAADYO8If2+P31AgAAQN0SWbhFDwCAZlXgaO1xAAAA1FngnA8AACAeQPSNEAAAAM4CnC64AAAA4GzN4N9NSfgKEAAAAACszO26X8/X6BYAAAD0Anid8KcLAAAAAAAAAJBnwNEvAAAA9Jns1ygAAAAAAAAAAAAAAAAAAABAQ4COCENERERERERERBrnAa1sJuUVr3rsAAAAAElFTkSuQmCC&#39;</span></span></span></code></pre></div>
 <p>Again, the same problem. The sprite is about <strong>814 bytes</strong> and at this point I wasn&rsquo;t even sure how I was going to crop aliens out of the sprite so I had to abandon this approach as well.</p>
-<h3 id="-solution-3-unicode-baby">🚫 Solution 3: Unicode Baby!</h3>
+<h3 id="no_entry_sign-solution-3-unicode-baby">&#x1f6ab; Solution 3: Unicode Baby!</h3>
 <p>There are block unicode characters ( ▉ ). I can insert <code>&lt;p&gt;</code> tags with block characters in the right order and perhaps create the alien shapes.</p>
 <p>I actually pursued this idea for a good few days and had a working solution but I still needed to encode the alien shape information in the code at which point the unicode characters were simply replacing a single call to <code>canvas.fillRect</code>. This, I decided was not worth the extra complication and size it added to the application.</p>
-<h3 id="-solution-4-canvasfillrect">✅ Solution 4: &ldquo;canvas.fillRect&rdquo;</h3>
+<h3 id="white_check_mark-solution-4-canvasfillrect">&#x2705; Solution 4: &ldquo;canvas.fillRect&rdquo;</h3>
 <p>I already had the <code>canvas</code> element provided to me by the <code>js1k</code> shim so it made sense to use that to draw the shapes. All I had to do was to encode the shape information in the application somehow.</p>
 <p>The idea first seemed like another lost cause but it made enough sense to spend some time on it and see how far I could take it.</p>
 <p>It turned out to be one the most enjoyable part of the entire project.</p>
@@ -172,27 +159,6 @@
     
     
 
-<section class="p-related">
-  <h3>See Also</h3>
-  <div class="p-related__list">
-    <div class="swiper-container">
-      <ul class="swiper-wrapper">
-        
-        <li class="p-related__item swiper-slide">
-          <a href="/posts/github-worktrees/"
-            >
-            <span>Github Worktrees</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
-    <div class="related-prev"></div>
-    <div class="related-next"></div>
-  </div>
-  
-</section>
-
 
     
 
@@ -205,8 +171,9 @@
     
 <ul class="c-links">
   
+  
   <li class="c-links__item">
-    <a href="https://twitter.com/shahrukhomar" target="_blank" rel="noreferrer">
+    <a href="https://twitter.com/shahrukhomar" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
         <title>twitter</title>
         <use xlink:href="#icon-twitter"></use>
@@ -219,7 +186,7 @@
   
   
   <li class="c-links__item">
-    <a href="https://github.com/shak" target="_blank" rel="noreferrer">
+    <a href="https://github.com/shak" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
         <title>github</title>
         <use xlink:href="#icon-github"></use>
@@ -230,7 +197,7 @@
   
   
   <li class="c-links__item">
-    <a href="https://www.npmjs.com/shahrukhomar" target="_blank" rel="noreferrer">
+    <a href="https://www.npmjs.com/shahrukhomar" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
         <title>npm</title>
         <use xlink:href="#icon-npm"></use>
@@ -248,14 +215,6 @@
   
   
   
-  <li class="c-links__item">
-    <a href="/index.xml" target="_blank">
-      <svg viewBox="0 0 64 64" class="c-links__icon" rel="noreferrer">
-        <title>rss</title>
-        <use xlink:href="#icon-rss"></use>
-      </svg>
-    </a>
-  </li>
   
 </ul>
 
@@ -281,6 +240,7 @@
       });
   }
 </script>
+  <script type="text/javascript" src="https://www.shahrukhomar.com/js/bundle.js" defer></script>
 </body>
 </html>
 

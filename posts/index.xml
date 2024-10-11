@@ -4,54 +4,45 @@
     <title>Posts on Shahrukh Omar</title>
     <link>https://www.shahrukhomar.com/posts/</link>
     <description>Recent content in Posts on Shahrukh Omar</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
-    <lastBuildDate>Thu, 30 Dec 2021 18:33:28 +0400</lastBuildDate><atom:link href="https://www.shahrukhomar.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Dec 2021 18:33:28 +0400</lastBuildDate>
+    <atom:link href="https://www.shahrukhomar.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Attractor Functions</title>
       <link>https://www.shahrukhomar.com/posts/attractor-functions/</link>
       <pubDate>Thu, 30 Dec 2021 18:33:28 +0400</pubDate>
-      
       <guid>https://www.shahrukhomar.com/posts/attractor-functions/</guid>
       <description>&lt;p&gt;I recently discovered &lt;a href=&#34;https://p5js.org/&#34;&gt;p5js&lt;/a&gt; that takes all the hardwork out of rendering on canvas and allows you to focus on the functional part of the application. As an experiment, I decided to investigate attractor functions.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>JS Extreme Minification: Binary Char Encoding - Part 2</title>
       <link>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part2/</link>
       <pubDate>Fri, 06 Sep 2019 12:20:14 +0100</pubDate>
-      
       <guid>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part2/</guid>
       <description>&lt;p&gt;This is part 2 of binary character string encoding. In this part I discuss in detail how the encoding process was optimised even further to reduce the shape information to just a few bytes.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>JS Extreme Minification: Binary Char Encoding - Part 1</title>
       <link>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part1/</link>
       <pubDate>Thu, 05 Sep 2019 22:13:30 +0100</pubDate>
-      
       <guid>https://www.shahrukhomar.com/posts/em-binary-encoding-decoding-part1/</guid>
       <description>&lt;p&gt;This post documents the process of binary char encoding that was used for the js1k space invaders project.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>JS Extreme Minification: Encoding Shapes</title>
       <link>https://www.shahrukhomar.com/posts/em-encoding-shapes/</link>
       <pubDate>Thu, 05 Sep 2019 20:53:45 +0100</pubDate>
-      
       <guid>https://www.shahrukhomar.com/posts/em-encoding-shapes/</guid>
       <description>&lt;p&gt;One of the biggest challenges while doing my js1k challenge was rendering shapes. In this part of the series I will discuss in detail the various possibilities of drawing shapes and why I chose to go with binary char encoding.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Github Worktrees</title>
       <link>https://www.shahrukhomar.com/posts/github-worktrees/</link>
       <pubDate>Sun, 10 Dec 2017 19:31:57 +0000</pubDate>
-      
       <guid>https://www.shahrukhomar.com/posts/github-worktrees/</guid>
       <description>&lt;p&gt;Recently I needed another copy of the git repository I was working on but it seemed like an awful lot of work cloning it another folder and then switching back and forth and fetching/pushing to keep it all up-to-date.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

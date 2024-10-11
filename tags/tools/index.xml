@@ -4,18 +4,17 @@
     <title>Tools on Shahrukh Omar</title>
     <link>https://www.shahrukhomar.com/tags/tools/</link>
     <description>Recent content in Tools on Shahrukh Omar</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
-    <lastBuildDate>Sun, 10 Dec 2017 19:31:57 +0000</lastBuildDate><atom:link href="https://www.shahrukhomar.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Dec 2017 19:31:57 +0000</lastBuildDate>
+    <atom:link href="https://www.shahrukhomar.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github Worktrees</title>
       <link>https://www.shahrukhomar.com/posts/github-worktrees/</link>
       <pubDate>Sun, 10 Dec 2017 19:31:57 +0000</pubDate>
-      
       <guid>https://www.shahrukhomar.com/posts/github-worktrees/</guid>
       <description>&lt;p&gt;Recently I needed another copy of the git repository I was working on but it seemed like an awful lot of work cloning it another folder and then switching back and forth and fetching/pushing to keep it all up-to-date.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

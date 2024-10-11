@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-gb">
+<html lang="en-gb" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
   <title>JS Extreme Minification: Binary Char Encoding - Part 2</title>
   <meta property="og:title" content="JS Extreme Minification: Binary Char Encoding - Part 2" />
@@ -32,21 +32,13 @@
   
   
   
-  <meta name="generator" content="Hugo 0.91.2" />
-  
-    
-  
-  
-
-  <link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
-  <link rel="manifest" href="https://www.shahrukhomar.com/manifest.json">
+  <meta name="generator" content="Hugo 0.134.3"><link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
   
   <link rel="stylesheet" href="https://www.shahrukhomar.com/css/custom.css">
   <link rel='icon' type='image/x-icon' href="https://www.shahrukhomar.com/img/favicon.ico" />
   
-  <script type="text/javascript" src="https://www.shahrukhomar.com/js/bundle.js"></script>
-  
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7365997168376286" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -66,7 +58,6 @@
 
   <main id="main" class="l-main">
 
-
 <article class="p-article">
   <header>
     <h1>JS Extreme Minification: Binary Char Encoding - Part 2</h1>
@@ -83,11 +74,7 @@
         
         
          | 
-           
-
-
-~4 mins
-
+           ~4mins
 
         
         </div>
@@ -117,10 +104,10 @@
 00001110
 </code></pre><p>Also that each character in 8-bit word can be only in 2 different states i.e. black box or a white box.</p>
 <p>Combining the binary nature of the colour information and how the shape can be arranged really easily in 8-bit words.</p>
-<p>The <em>logical</em> (😎) conclusion therefore was to try and represent each word in decimal so instead of taking 8 bytes per word, we will use no more than 3 bytes per word.</p>
+<p>The <em>logical</em> (&#x1f60e;) conclusion therefore was to try and represent each word in decimal so instead of taking 8 bytes per word, we will use no more than 3 bytes per word.</p>
 <p>JS fortunately has functions available to convert between binary and decimal fairly easily.</p>
 <p>For example, an 8-bit word represented by <code>00111100</code> can be converted to it&rsquo;s decimal representation using:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87">String</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fromCharCode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">parseInt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;00111100&#39;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">);</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#204a87">String</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fromCharCode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">parseInt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;00111100&#39;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">);</span></span></span></code></pre></div>
 <p>It follows that <code>00111100</code> in binary is equal to <code>60</code> in decimal. So by converting binary map to decimal we can save between 3 and 5 bytes per word. (8-bit binary can go up to 255 so it depends if the binary word is represented by a single digit decimal or 3 digit decimal).</p>
 <p>Encoding our <code>space invaders</code> alien example from binary to decimal give us:</p>
 <pre tabindex="0"><code>60
@@ -131,30 +118,30 @@
 14
 </code></pre><p>So here we&rsquo;ve gone from <strong>48 bytes</strong> to just <strong>14 bytes</strong> for our alien!</p>
 <table>
-<thead>
-<tr>
-<th>Optmisation</th>
-<th>Alien size</th>
-<th>% Diff. form original</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Original</td>
-<td>77 bytes</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Mirroring</td>
-<td>48 bytes</td>
-<td>-37.66%</td>
-</tr>
-<tr>
-<td>Decimal encoding</td>
-<td>14 bytes</td>
-<td>-81.83%</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Optmisation</th>
+          <th style="text-align: left">Alien size</th>
+          <th style="text-align: left">% Diff. form original</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Original</td>
+          <td style="text-align: left">77 bytes</td>
+          <td style="text-align: left">-</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Mirroring</td>
+          <td style="text-align: left">48 bytes</td>
+          <td style="text-align: left">-37.66%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Decimal encoding</td>
+          <td style="text-align: left">14 bytes</td>
+          <td style="text-align: left">-81.83%</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="optimisation-4-ascii-char-codes">Optimisation 4: ASCII Char Codes</h3>
 <p>While I was working on my js1k project, I debugged an issue at work where our client had implemented some JavaScript code on their site which we had provided but it was failing on a string comparison.</p>
@@ -163,55 +150,55 @@
 <p>Our client had copy pasted the code from an email client <em>cough</em> outlook <em>cough</em> which had added invisible characters to the code thus introducing the bug.</p>
 <p>As painful as it was to discover that actual issue, it did gave me an idea for js1k: To use ASCII representation for my decimal encoded shape map. Because ASCII can represent entire 8-bit word spectrum and I don&rsquo;t really care if I end up in the invisible character range for this project.</p>
 <p>So from previous step I computed ASCII representation for each decimal word by running:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87">String</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fromCharCode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">60</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#204a87">String</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fromCharCode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">60</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span></span></span></code></pre></div>
 <p>That gave me:</p>
-<p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#4e9a06">&#34;&lt;=m¾&lt;0x18&gt;&lt;0x0e&gt;&#34;</span></code></pre></div>
+<p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;&lt;=m¾&lt;0x18&gt;&lt;0x0e&gt;&#34;</span></span></span></code></pre></div>
 <em>Note: I have typed out the hex representations for invisible characters so you can see them in the string, copy pasting these into a program to run will not yield the same result. For that, please generate the ASCII using fromCharCode.</em></p>
-<p>The entire shape information represented in just <strong>6 bytes</strong> 🎉</p>
+<p>The entire shape information represented in just <strong>6 bytes</strong> &#x1f389;</p>
 <table>
-<thead>
-<tr>
-<th>Optmisation</th>
-<th>Alien size</th>
-<th>% Diff. form original</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Original</td>
-<td>77 bytes</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Mirroring</td>
-<td>48 bytes</td>
-<td>-37.66%</td>
-</tr>
-<tr>
-<td>Decimal encoding</td>
-<td>14 bytes</td>
-<td>-81.83%</td>
-</tr>
-<tr>
-<td>ASCII</td>
-<td>6 bytes</td>
-<td>-92.20%</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Optmisation</th>
+          <th style="text-align: left">Alien size</th>
+          <th style="text-align: left">% Diff. form original</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Original</td>
+          <td style="text-align: left">77 bytes</td>
+          <td style="text-align: left">-</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Mirroring</td>
+          <td style="text-align: left">48 bytes</td>
+          <td style="text-align: left">-37.66%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Decimal encoding</td>
+          <td style="text-align: left">14 bytes</td>
+          <td style="text-align: left">-81.83%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">ASCII</td>
+          <td style="text-align: left">6 bytes</td>
+          <td style="text-align: left">-92.20%</td>
+      </tr>
+  </tbody>
 </table>
 <p>ASCII can be unserialised and rendered to canvas as follows:</p>
-<p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">asciiChars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;&lt;=m¾&lt;0x18&gt;&lt;0x0e&gt;&#39;</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">sf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//scaling factor;
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">charCode</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">asciiChars</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">charCodeAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">Math</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">));</span>
-
-    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">charCode</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">row</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#8f5902;font-style:italic">// using bitmask
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">c</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fillRect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-  <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span></code></pre></div>
+<p><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">asciiChars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;&lt;=m¾&lt;0x18&gt;&lt;0x0e&gt;&#39;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">sf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//scaling factor;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">col</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">charCode</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">asciiChars</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">charCodeAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">Math</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">charCode</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">row</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#8f5902;font-style:italic">// using bitmask
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">c</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fillRect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">row</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">sf</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
 <em>Note: The code above will render the alien shape upside down but that&rsquo;s because of some modification I&rsquo;ve made to make these example easy to understand and to remain consistent between every step. With minor modifications it can be made to render the right way up. Also, I&rsquo;ve typed out the hex representation for the invisible characters, please replace them with actual ASCII chars if you wish to run this in the browser.</em></p>
 <p>I can now encode both my alien variations in <strong>12 bytes</strong> which is awesome but I have yet another trick up my sleeve which I will leave for another day :)</p>
 <p><em><strong>to be continued &hellip;</strong></em></p>
@@ -238,41 +225,6 @@
     
     
 
-<section class="p-related">
-  <h3>See Also</h3>
-  <div class="p-related__list">
-    <div class="swiper-container">
-      <ul class="swiper-wrapper">
-        
-        <li class="p-related__item swiper-slide">
-          <a href="/posts/em-binary-encoding-decoding-part1/"
-            >
-            <span>JS Extreme Minification: Binary Char Encoding - Part 1</span>
-          </a>
-        </li>
-        
-        <li class="p-related__item swiper-slide">
-          <a href="/posts/em-encoding-shapes/"
-            >
-            <span>JS Extreme Minification: Encoding Shapes</span>
-          </a>
-        </li>
-        
-        <li class="p-related__item swiper-slide">
-          <a href="/posts/github-worktrees/"
-            >
-            <span>Github Worktrees</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
-    <div class="related-prev"></div>
-    <div class="related-next"></div>
-  </div>
-  
-</section>
-
 
     
 
@@ -285,8 +237,9 @@
     
 <ul class="c-links">
   
+  
   <li class="c-links__item">
-    <a href="https://twitter.com/shahrukhomar" target="_blank" rel="noreferrer">
+    <a href="https://twitter.com/shahrukhomar" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
         <title>twitter</title>
         <use xlink:href="#icon-twitter"></use>
@@ -299,7 +252,7 @@
   
   
   <li class="c-links__item">
-    <a href="https://github.com/shak" target="_blank" rel="noreferrer">
+    <a href="https://github.com/shak" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
         <title>github</title>
         <use xlink:href="#icon-github"></use>
@@ -310,7 +263,7 @@
   
   
   <li class="c-links__item">
-    <a href="https://www.npmjs.com/shahrukhomar" target="_blank" rel="noreferrer">
+    <a href="https://www.npmjs.com/shahrukhomar" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
         <title>npm</title>
         <use xlink:href="#icon-npm"></use>
@@ -328,14 +281,6 @@
   
   
   
-  <li class="c-links__item">
-    <a href="/index.xml" target="_blank">
-      <svg viewBox="0 0 64 64" class="c-links__icon" rel="noreferrer">
-        <title>rss</title>
-        <use xlink:href="#icon-rss"></use>
-      </svg>
-    </a>
-  </li>
   
 </ul>
 
@@ -361,6 +306,7 @@
       });
   }
 </script>
+  <script type="text/javascript" src="https://www.shahrukhomar.com/js/bundle.js" defer></script>
 </body>
 </html>
 

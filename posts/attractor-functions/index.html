@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-gb">
+<html lang="en-gb" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
   <title>Attractor Functions</title>
   <meta property="og:title" content="Attractor Functions" />
@@ -32,21 +32,13 @@
   
   
   
-  <meta name="generator" content="Hugo 0.91.2" />
-  
-    
-  
-  
-
-  <link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
-  <link rel="manifest" href="https://www.shahrukhomar.com/manifest.json">
+  <meta name="generator" content="Hugo 0.134.3"><link rel="stylesheet" href="https://www.shahrukhomar.com/css/style.css" />
   
   <link rel="stylesheet" href="https://www.shahrukhomar.com/css/custom.css">
   <link rel='icon' type='image/x-icon' href="https://www.shahrukhomar.com/img/favicon.ico" />
   
-  <script type="text/javascript" src="https://www.shahrukhomar.com/js/bundle.js"></script>
-  
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7365997168376286" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -66,7 +58,6 @@
 
   <main id="main" class="l-main">
 
-
 <article class="p-article">
   <header>
     <h1>Attractor Functions</h1>
@@ -83,11 +74,7 @@
         
         
          | 
-           
-
-
-~2 mins
-
+           ~2mins
 
         
         </div>
@@ -109,25 +96,25 @@
 <p>These functions are defined as a set of equations in n number of dimensions. The functions also define parameters which determine the - to put it in very non-technical terms - state the system will tend towards.</p>
 <h2 id="clifford-attractor">Clifford Attractor</h2>
 <p>The first attractor I tried was Clifford attractor, mainly for it&rsquo;s simplicity.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//a, b, c &amp; d are the function parameters
-</span><span style="color:#8f5902;font-style:italic">// xn &amp; yn are the value from previous iteration
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">d</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">//a, b, c &amp; d are the function parameters
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// xn &amp; yn are the value from previous iteration
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">d</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span></span></span></code></pre></div>
 <p>I ran it for 10 million points with each point iterated 5 times using the Clifford attractor.</p>
 <figure><img src="/img/clifford_coloured.png#center"
-         alt="Image showing clifford attractor function rendered using points"/>
+    alt="Image showing clifford attractor function rendered using points">
 </figure>
 <h2 id="jason-rampe-attractor">Jason Rampe Attractor</h2>
 <p>Jason Rampe was is an iteration on Cifford function using the same dimensions and similar number of parameters.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//a, b, c &amp; d are the function parameters
-</span><span style="color:#8f5902;font-style:italic">// xn &amp; yn are the value from previous iteration
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">d</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">//a, b, c &amp; d are the function parameters
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// xn &amp; yn are the value from previous iteration
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">xn</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">d</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">yn</span><span style="color:#000;font-weight:bold">)</span></span></span></code></pre></div>
 <p>I ran it for 10 million points with each point iterated 5 times using the Jason Rampe attractor.</p>
 <figure><img src="/img/rampe_coloured.png#center"
-         alt="Image showing Jason Rampe attractor function rendered using points"/>
+    alt="Image showing Jason Rampe attractor function rendered using points">
 </figure>
   </section>
   <footer>
@@ -150,48 +137,6 @@
     
     
 
-<section class="p-related">
-  <h3>See Also</h3>
-  <div class="p-related__list">
-    <div class="swiper-container">
-      <ul class="swiper-wrapper">
-        
-        <li class="p-related__item swiper-slide">
-          <a href="/posts/em-binary-encoding-decoding-part2/"
-            >
-            <span>JS Extreme Minification: Binary Char Encoding - Part 2</span>
-          </a>
-        </li>
-        
-        <li class="p-related__item swiper-slide">
-          <a href="/posts/em-binary-encoding-decoding-part1/"
-            >
-            <span>JS Extreme Minification: Binary Char Encoding - Part 1</span>
-          </a>
-        </li>
-        
-        <li class="p-related__item swiper-slide">
-          <a href="/posts/em-encoding-shapes/"
-            >
-            <span>JS Extreme Minification: Encoding Shapes</span>
-          </a>
-        </li>
-        
-        <li class="p-related__item swiper-slide">
-          <a href="/posts/github-worktrees/"
-            >
-            <span>Github Worktrees</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
-    <div class="related-prev"></div>
-    <div class="related-next"></div>
-  </div>
-  
-</section>
-
 
     
 
@@ -204,8 +149,9 @@
     
 <ul class="c-links">
   
+  
   <li class="c-links__item">
-    <a href="https://twitter.com/shahrukhomar" target="_blank" rel="noreferrer">
+    <a href="https://twitter.com/shahrukhomar" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
         <title>twitter</title>
         <use xlink:href="#icon-twitter"></use>
@@ -218,7 +164,7 @@
   
   
   <li class="c-links__item">
-    <a href="https://github.com/shak" target="_blank" rel="noreferrer">
+    <a href="https://github.com/shak" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
         <title>github</title>
         <use xlink:href="#icon-github"></use>
@@ -229,7 +175,7 @@
   
   
   <li class="c-links__item">
-    <a href="https://www.npmjs.com/shahrukhomar" target="_blank" rel="noreferrer">
+    <a href="https://www.npmjs.com/shahrukhomar" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
         <title>npm</title>
         <use xlink:href="#icon-npm"></use>
@@ -247,14 +193,6 @@
   
   
   
-  <li class="c-links__item">
-    <a href="/index.xml" target="_blank">
-      <svg viewBox="0 0 64 64" class="c-links__icon" rel="noreferrer">
-        <title>rss</title>
-        <use xlink:href="#icon-rss"></use>
-      </svg>
-    </a>
-  </li>
   
 </ul>
 
@@ -280,6 +218,7 @@
       });
   }
 </script>
+  <script type="text/javascript" src="https://www.shahrukhomar.com/js/bundle.js" defer></script>
 </body>
 </html>
 

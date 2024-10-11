@@ -4,27 +4,24 @@
     <title>Categories on Shahrukh Omar</title>
     <link>https://www.shahrukhomar.com/categories/</link>
     <description>Recent content in Categories on Shahrukh Omar</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
-    <lastBuildDate>Thu, 30 Dec 2021 18:33:28 +0400</lastBuildDate><atom:link href="https://www.shahrukhomar.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Dec 2021 18:33:28 +0400</lastBuildDate>
+    <atom:link href="https://www.shahrukhomar.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Digital Art</title>
       <link>https://www.shahrukhomar.com/categories/digital-art/</link>
       <pubDate>Thu, 30 Dec 2021 18:33:28 +0400</pubDate>
-      
       <guid>https://www.shahrukhomar.com/categories/digital-art/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Development</title>
       <link>https://www.shahrukhomar.com/categories/development/</link>
       <pubDate>Fri, 06 Sep 2019 12:20:14 +0100</pubDate>
-      
       <guid>https://www.shahrukhomar.com/categories/development/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

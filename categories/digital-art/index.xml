@@ -4,18 +4,17 @@
     <title>Digital Art on Shahrukh Omar</title>
     <link>https://www.shahrukhomar.com/categories/digital-art/</link>
     <description>Recent content in Digital Art on Shahrukh Omar</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-gb</language>
     <copyright>&amp;copy; Shahrukh Omar</copyright>
-    <lastBuildDate>Thu, 30 Dec 2021 18:33:28 +0400</lastBuildDate><atom:link href="https://www.shahrukhomar.com/categories/digital-art/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Dec 2021 18:33:28 +0400</lastBuildDate>
+    <atom:link href="https://www.shahrukhomar.com/categories/digital-art/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Attractor Functions</title>
       <link>https://www.shahrukhomar.com/posts/attractor-functions/</link>
       <pubDate>Thu, 30 Dec 2021 18:33:28 +0400</pubDate>
-      
       <guid>https://www.shahrukhomar.com/posts/attractor-functions/</guid>
       <description>&lt;p&gt;I recently discovered &lt;a href=&#34;https://p5js.org/&#34;&gt;p5js&lt;/a&gt; that takes all the hardwork out of rendering on canvas and allows you to focus on the functional part of the application. As an experiment, I decided to investigate attractor functions.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
